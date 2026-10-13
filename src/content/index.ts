@@ -1,0 +1,33 @@
+import type { Locale } from "@/shared/config/site";
+
+import * as esGlobal from "./es/global";
+import * as esHome from "./es/home";
+import * as esServicios from "./es/servicios";
+import * as esContacto from "./es/contacto";
+import * as esNosotros from "./es/nosotros";
+
+import * as enGlobal from "./en/global";
+import * as enHome from "./en/home";
+import * as enServicios from "./en/servicios";
+import * as enContacto from "./en/contacto";
+import * as enNosotros from "./en/nosotros";
+
+export function getGlobalContent(locale: Locale = "es") {
+  return locale === "en" ? enGlobal.globalContent : esGlobal.globalContent;
+}
+
+export function getHomeContent(locale: Locale = "es") {
+  return locale === "en" ? enHome : esHome;
+}
+
+export function getServiciosContent(locale: Locale = "es") {
+  return locale === "en" ? enServicios : esServicios;
+}
+
+export function getContactoContent(locale: Locale = "es") {
+  return locale === "en" ? enContacto : esContacto;
+}
+
+export function getNosotrosContent(locale: Locale = "es") {
+  return locale === "en" ? enNosotros : esNosotros;
+}

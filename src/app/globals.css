@@ -1,26 +1,617 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * `neon-char` and `is-lit` are applied from JavaScript (src/shared/motion/*),
+ * so Tailwind never sees them in the markup and would not emit them. Without
+ * this the lettering is simply always lit and the sign never switches on.
+ */
+@source inline("neon-char");
+@source inline("is-lit");
+
+/* ===========================================================================
+   creamostuweb — "Vegas Nocturno"
+   ---------------------------------------------------------------------------
+   The site is a street at night where every business is a lit sign. The whole
+   pitch is "que te vean", so the page does not describe visibility — it
+   performs it. Signs start dark and turn on.
+
+   Real neon snaps on with a flicker; it does not fade. Every lighting
+   transition here is a hard cut, driven by class toggles, not opacity tweens.
+
+   Rejected on purpose: near-black + acid lime (#bff747), the default agency
+   look. Vegas neon is magenta, cyan and gold on a blue-black night.
+   See docs/BRIEF.md section 3.
+   =========================================================================== */
+
+@theme {
+  /* Ground. Never pure black — black kills glow and flattens the page. */
+  --color-night: #0a0a0f;
+  --color-night-2: #12121a;
+  --color-night-3: #1b1b26;
+
+  /* Text & Whites (#faf9f7 / #e2e0e9) */
+  --color-bone: #faf9f7;
+  --color-bone-70: #e2e0e9;
+  --color-bone-45: #9e9cb0;
+
+  /* Brand Palette (Aligned with creamostuweb logo: Amarillo + Vinotinto) */
+  /* Primary: Warm Amber Gold / Amarillo (#ed980f) */
+  --color-gold: #ed980f;
+  --color-gold-hover: #f7a71e;
+  --color-primary: #ed980f;
+
+  /* Secondary: Vinotinto / Burgundy Wine (#832c20) */
+  --color-wine: #832c20;
+  --color-wine-hover: #9c3527;
+  --color-wine-light: #ab3e2f;
+  --color-pink: #832c20;
+  --color-pink-deep: #5e1f16;
+  --color-secondary: #832c20;
+
+  /* Cyan accent for technology/communication elements */
+  --color-cyan: #28e0f0;
+
+  /* Type */
+  --font-display: var(--font-sora), system-ui, sans-serif;
+  --font-body: var(--font-sora), system-ui, sans-serif;
+
+  /* Rhythm */
+  --spacing-panel: 5.5rem;
+  --spacing-panel-lg: 9rem;
+  --radius-sign: 10px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ===========================================================================
+   Base
+   =========================================================================== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+    background-color: var(--color-night);
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  body {
+    position: relative;
+    background-color: var(--color-night);
+    color: var(--color-bone);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /*
+   * Film grain. A dark page with no texture reads as empty rather than
+   * atmospheric; this is most of the difference.
+   */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-night);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-cyan);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Heading hierarchy for Sora */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  /*
+   * Elements GSAP reveals start hidden, but only once the inline script in the
+   * layout has marked the document as scripted. With no JavaScript the content
+   * stays visible instead of disappearing.
+   */
+  [data-js] [data-reveal],
+  [data-js] [data-hero-item],
+  [data-js] [data-feed],
+  [data-js] [data-split] {
+    opacity: 0;
+  }
+
+  /* Photos open like a shutter going up. GSAP animates the inset back to 0. */
+  [data-js] [data-img-reveal] {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  /*
+   * Signature sequence. The markup's resting state is the FINISHED exchange —
+   * missed call plus both messages — so with no JavaScript, or with reduced
+   * motion, the panel still tells the whole story and nothing overlaps.
+   * [data-js] flips it to the starting state for GSAP to animate from.
+   */
+  [data-call-stage="ringing"] {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  [data-js] [data-call-stage="ringing"] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  [data-js] [data-call-stage="missed"],
+  [data-js] [data-call-stage="sms-out"],
+  [data-js] [data-call-stage="sms-in"] {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Reduced motion means the finished state, not a zero-duration animation. */
+    [data-reveal],
+    [data-hero-item],
+    [data-feed],
+    [data-split] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    [data-img-reveal] {
+      clip-path: none !important;
+    }
+
+    [data-js] [data-call-stage="ringing"] {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    [data-js] [data-call-stage="missed"],
+    [data-js] [data-call-stage="sms-out"],
+    [data-js] [data-call-stage="sms-in"] {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===========================================================================
+   Type
+   =========================================================================== */
+
+@utility type-marquee {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+@utility type-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+}
+
+@utility type-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* ===========================================================================
+   Neon
+   ---------------------------------------------------------------------------
+   A lit tube is a white-hot core inside coloured bloom. An unlit tube is a
+   faint glass outline. `.neon` is LIT by default so the markup's resting state
+   is a working sign — correct with no JavaScript and under reduced motion.
+   JS adds `.neon-char` to each split character to darken it, then removes it
+   one character at a time.
+   =========================================================================== */
+
+@utility neon {
+  color: var(--color-bone);
+  text-shadow:
+    0 0 1px rgb(255 255 255 / 0.95),
+    0 0 7px var(--neon-hue, var(--color-gold)),
+    0 0 18px var(--neon-hue, var(--color-gold)),
+    0 0 38px var(--neon-bloom, rgb(237 152 15 / 0.6)),
+    0 0 76px var(--neon-bloom, rgb(237 152 15 / 0.35));
+}
+
+@utility neon-gold {
+  --neon-hue: var(--color-gold);
+  --neon-bloom: rgb(237 152 15 / 0.65);
+}
+
+@utility neon-wine {
+  --neon-hue: var(--color-wine);
+  --neon-bloom: rgb(131 44 32 / 0.7);
+}
+
+@utility neon-pink {
+  --neon-hue: var(--color-wine);
+  --neon-bloom: rgb(131 44 32 / 0.7);
+}
+
+@utility neon-cyan {
+  --neon-hue: var(--color-cyan);
+  --neon-bloom: rgb(40 224 240 / 0.5);
+}
+
+/* Unlit glass. Applied per character by the sign hook, removed as it lights. */
+@utility neon-char {
+  color: rgb(250 249 247 / 0.12);
+  text-shadow: none;
+  -webkit-text-stroke: 0.6px rgb(250 249 247 / 0.15);
+}
+
+/* ===========================================================================
+   Signs and surfaces
+   =========================================================================== */
+
+/* A sign panel: raised off the night, hairline tube edge, inner lift. */
+@utility sign {
+  position: relative;
+  border: 1px solid rgb(250 249 247 / 0.1);
+  border-radius: var(--radius-sign);
+  background:
+    linear-gradient(
+      180deg,
+      rgb(250 249 247 / 0.045) 0%,
+      rgb(250 249 247 / 0.012) 38%,
+      rgb(10 10 15 / 0) 100%
+    ),
+    var(--color-night-2);
+  box-shadow:
+    inset 0 1px 0 rgb(250 249 247 / 0.07),
+    0 24px 60px -32px rgb(0 0 0 / 0.9);
+}
+
+/* A sign that is off until it scrolls into view. The hook adds .is-lit. */
+@utility sign-switch {
+  transition:
+    border-color 420ms ease-out,
+    box-shadow 420ms ease-out,
+    background-color 420ms ease-out;
+
+  &.is-lit {
+    border-color: rgb(236 152 11 / 0.6);
+    box-shadow:
+      inset 0 1px 0 rgb(250 249 247 / 0.1),
+      0 0 0 1px rgb(236 152 11 / 0.25),
+      0 0 34px -8px rgb(236 152 11 / 0.35),
+      0 24px 60px -32px rgb(0 0 0 / 0.9);
+  }
+}
+
+/* Ambient bloom behind a panel, so the dark has depth instead of being flat. */
+@utility bloom {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse 75% 55% at 50% 30%,
+      rgb(130 38 33 / 0.22) 0%,
+      rgb(130 38 33 / 0.08) 35%,
+      transparent 70%
+    );
+  }
+}
+
+@utility bloom-wine {
+  &::before {
+    background: radial-gradient(
+      ellipse 75% 55% at 50% 30%,
+      rgb(130 38 33 / 0.22) 0%,
+      rgb(130 38 33 / 0.08) 35%,
+      transparent 70%
+    );
+  }
+}
+
+@utility bloom-cyan {
+  &::before {
+    background: radial-gradient(
+      ellipse 75% 55% at 50% 30%,
+      rgb(40 224 240 / 0.15) 0%,
+      rgb(40 224 240 / 0.05) 35%,
+      transparent 70%
+    );
+  }
+}
+
+@utility bloom-gold {
+  &::before {
+    background: radial-gradient(
+      ellipse 75% 55% at 50% 30%,
+      rgb(236 152 11 / 0.20) 0%,
+      rgb(236 152 11 / 0.06) 35%,
+      transparent 70%
+    );
+  }
+}
+
+/* The hairline that separates panels: a lit filament, brightest in the middle. */
+@utility filament {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(250 249 247 / 0.16) 22%,
+    rgb(236 152 11 / 0.6) 50%,
+    rgb(250 249 247 / 0.16) 78%,
+    transparent 100%
+  );
+}
+
+/* ===========================================================================
+   Controls
+   ---------------------------------------------------------------------------
+   Primary button (#822621): clean, elegant white/bone text on crimson.
+   Secondary/Gold button (#ec980b): dark text on amber-gold.
+   =========================================================================== */
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition:
+    transform 180ms ease-out,
+    box-shadow 320ms ease-out,
+    background-color 180ms ease-out,
+    color 180ms ease-out;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-night);
+  font-weight: 700;
+  box-shadow:
+    0 0 22px -4px rgb(237 152 15 / 0.65),
+    0 0 60px -18px rgb(237 152 15 / 0.45);
+
+  &:hover {
+    background-color: var(--color-gold-hover, #f7a71e);
+    box-shadow:
+      0 0 30px -2px rgb(237 152 15 / 0.85),
+      0 0 86px -14px rgb(237 152 15 / 0.6);
+  }
+}
+
+@utility btn-wine {
+  background-color: var(--color-wine);
+  color: var(--color-bone);
+  font-weight: 700;
+  border: 1px solid rgb(250 249 247 / 0.15);
+  box-shadow:
+    0 0 22px -4px rgb(131 44 32 / 0.7),
+    0 0 50px -15px rgb(131 44 32 / 0.45);
+
+  &:hover {
+    background-color: var(--color-wine-hover, #9c3527);
+    border-color: rgb(250 249 247 / 0.3);
+    box-shadow:
+      0 0 30px -2px rgb(131 44 32 / 0.85),
+      0 0 70px -12px rgb(131 44 32 / 0.6);
+  }
+}
+
+@utility btn-pink {
+  background-color: var(--color-wine);
+  color: var(--color-bone);
+  font-weight: 700;
+  border: 1px solid rgb(250 249 247 / 0.15);
+  box-shadow:
+    0 0 22px -4px rgb(131 44 32 / 0.7),
+    0 0 50px -15px rgb(131 44 32 / 0.45);
+
+  &:hover {
+    background-color: var(--color-wine-hover, #9c3527);
+    border-color: rgb(250 249 247 / 0.3);
+    box-shadow:
+      0 0 30px -2px rgb(131 44 32 / 0.85),
+      0 0 70px -12px rgb(131 44 32 / 0.6);
+  }
+}
+
+/* Outline control: an unlit tube that lights on hover. */
+@utility btn-tube {
+  background-color: transparent;
+  color: var(--color-bone);
+  border: 1px solid rgb(250 249 247 / 0.28);
+
+  &:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+    box-shadow:
+      inset 0 0 18px -8px rgb(236 152 11 / 0.5),
+      0 0 26px -8px rgb(236 152 11 / 0.55);
+  }
+}
+
+/* ===========================================================================
+   Marquee
+   ---------------------------------------------------------------------------
+   A marquee IS a sign, so here the movement is the subject rather than
+   decoration. It pauses on hover and stops entirely under reduced motion.
+   =========================================================================== */
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 42s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    /* The track renders its content twice, so half a loop is seamless. */
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ===========================================================================
+   Photography
+   ---------------------------------------------------------------------------
+   Stock photos are graded into the night: slightly desaturated and cooled so
+   they sit under the neon instead of competing with it. The vignette pulls the
+   edges into the ground colour.
+   =========================================================================== */
+
+@utility photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sign);
+  background-color: var(--color-night-3);
+  isolation: isolate;
+
+  & img {
+    filter: saturate(0.85) contrast(1.08) brightness(0.86);
+    transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 600ms ease-out;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 90% at 50% 40%, transparent 55%, rgb(10 10 15 / 0.55) 100%),
+      linear-gradient(180deg, transparent 55%, rgb(10 10 15 / 0.75) 100%);
+  }
+}
+
+/* A neon caption set over a photo, like a sign hanging in a window. */
+@utility photo-caption {
+  position: absolute;
+  z-index: 2;
+  left: 1.1rem;
+  bottom: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+/* A floating notification card — the hero feed, the photo badge. */
+@utility notice {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid rgb(250 249 247 / 0.12);
+  border-radius: 14px;
+  background: rgb(18 18 26 / 0.78);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow:
+    inset 0 1px 0 rgb(250 249 247 / 0.08),
+    0 18px 40px -18px rgb(0 0 0 / 0.9);
+}
+
+/* One month of the payment plan. Off until the sequence reaches it. */
+@utility month-cell {
+  border: 1px solid rgb(250 249 247 / 0.1);
+  border-radius: 8px;
+  background: rgb(250 249 247 / 0.025);
+  color: var(--color-bone-45);
+  transition:
+    border-color 260ms ease-out,
+    box-shadow 260ms ease-out,
+    color 260ms ease-out,
+    background-color 260ms ease-out;
+
+  &.is-lit {
+    border-color: rgb(236 152 11 / 0.6);
+    background: rgb(236 152 11 / 0.08);
+    color: var(--color-gold);
+    box-shadow: 0 0 22px -8px rgb(236 152 11 / 0.7);
+  }
 }
