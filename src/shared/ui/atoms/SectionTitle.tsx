@@ -14,10 +14,10 @@ interface SectionTitleProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 const SIZE = {
-  xl: "text-[clamp(1.85rem,6vw,5.2rem)] font-extrabold tracking-tight leading-[1.08] break-words",
-  lg: "text-[clamp(1.55rem,4.4vw,3.8rem)] font-bold tracking-tight leading-[1.12] break-words",
-  md: "text-[clamp(1.3rem,3.2vw,2.7rem)] font-bold tracking-tight leading-[1.15] break-words",
-  sm: "text-[clamp(1.1rem,2.2vw,1.8rem)] font-semibold tracking-normal leading-[1.2] break-words",
+  xl: "text-[clamp(1.5rem,3vw,2.25rem)] font-extrabold tracking-tight leading-[1.2] break-words",
+  lg: "text-[clamp(1.3rem,2.4vw,1.85rem)] font-bold tracking-tight leading-[1.22] break-words",
+  md: "text-[clamp(1.15rem,1.9vw,1.5rem)] font-bold tracking-tight leading-[1.24] break-words",
+  sm: "text-[clamp(1rem,1.4vw,1.25rem)] font-semibold tracking-normal leading-[1.25] break-words",
 } as const;
 
 const WEIGHT = {

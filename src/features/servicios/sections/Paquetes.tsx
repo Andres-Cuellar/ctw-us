@@ -162,7 +162,7 @@ export function Paquetes({ content, locale }: PaquetesProps) {
 
                   {/* Phases & Features breakdown */}
                   <div className="mt-6 flex flex-col gap-5 border-t border-bone/12 pt-5">
-                    {bundle.phases.map((phase) => (
+                    {bundle.phases?.map((phase) => (
                       <div key={phase.title} className="flex flex-col gap-2.5">
                         <h4 className="type-eyebrow text-[0.72rem] tracking-wider text-bone uppercase">
                           {phase.title}

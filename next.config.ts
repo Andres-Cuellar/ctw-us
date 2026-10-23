@@ -4,6 +4,16 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
+  },
+
   /**
    * Every internal href on this site is derived at runtime from the content
    * layer and prefixed with the active locale (see src/shared/lib/routes.ts).

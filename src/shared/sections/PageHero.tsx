@@ -58,7 +58,7 @@ export function PageHero({ content, locale, hue = "gold" }: PageHeroProps) {
           </Eyebrow>
         )}
 
-        <h1 className="type-marquee mt-7 max-w-[24ch] text-[clamp(2.3rem,7vw,5rem)] leading-[1.04] text-bone">
+        <h1 className="type-marquee mt-7 max-w-[24ch] text-[clamp(1.75rem,4vw,2.75rem)] leading-[1.15] text-bone">
           {content.title}
         </h1>
 

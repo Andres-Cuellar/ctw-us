@@ -101,13 +101,13 @@ export const featuredServices: FeaturedServicesContent = {
     {
       icon: "web",
       title: "Sales Autopilot (Recomendado)",
-      body: "Máquina de ventas: hasta 10 páginas, pipeline comercial, seguimiento automático por SMS/email, recordatorios de citas y reseñas automáticas.",
+      body: "Máquina de ventas: web hasta 10 páginas, pipeline comercial, seguimiento automático, reseñas y campañas en Meta Ads con $400 USD de pauta incluida.",
       cta: { label: "Ver Sales Autopilot", kind: "anchor", href: "/servicios#paquetes" },
     },
     {
       icon: "ai",
       title: "Market Leader (Premium)",
-      body: "Inteligencia artificial 24/7 entrenada para tu negocio, web hasta 20 páginas, 10.000 SMS al mes, reactivación comercial y soporte prioritario.",
+      body: "Dominio de mercado: agente IA 24/7, web hasta 20 páginas, 10.000 SMS, soporte VIP y pauta omnicanal en Meta + Google Ads con $800 USD incluidos.",
       cta: { label: "Ver Market Leader", kind: "anchor", href: "/servicios#paquetes" },
     },
     {

@@ -101,13 +101,13 @@ export const featuredServices: FeaturedServicesContent = {
     {
       icon: "web",
       title: "Sales Autopilot (Recommended)",
-      body: "Sales machine: up to 10 pages, sales pipeline, automated SMS/email follow-ups, appointment reminders, and automated reviews.",
+      body: "Sales machine: web up to 10 pages, sales pipeline, automated follow-up, reviews, and Meta Ads campaigns with $400 USD managed ad spend included.",
       cta: { label: "View Sales Autopilot", kind: "anchor", href: "/servicios#paquetes" },
     },
     {
       icon: "ai",
       title: "Market Leader (Premium)",
-      body: "24/7 AI trained for your business, up to 20 pages, 10,000 SMS/month, client reactivation, and priority support.",
+      body: "Market dominance: 24/7 AI agent, web up to 20 pages, 10,000 SMS, VIP advisory, and omnichannel Meta + Google Ads with $800 USD managed ad spend included.",
       cta: { label: "View Market Leader", kind: "anchor", href: "/servicios#paquetes" },
     },
     {

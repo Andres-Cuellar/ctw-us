@@ -23,7 +23,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "type-eyebrow flex items-center gap-3 text-[0.68rem]",
+        "type-eyebrow flex items-center gap-3 text-[0.75rem]",
         HUE[hue],
         className,
       )}

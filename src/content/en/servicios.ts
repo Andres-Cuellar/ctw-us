@@ -204,13 +204,13 @@ export const bundles: BundlesContent = {
     {
       id: "sales-autopilot",
       name: "Sales Autopilot",
-      tagline: "Sales Automation\n& Conversion",
+      tagline: "Sales Automation,\nConversion & Meta Ads",
       badge: "Recommended",
       tier: "Recommended",
       targetAudience:
-        "For businesses receiving leads consistently that need to follow up automatically, close more sales, and eliminate appointment no-shows.",
+        "For businesses looking to generate qualified social media leads consistently, follow up automatically, and close more deals without missed appointments.",
       setupPrice: "$3,499 USD",
-      monthlyPrice: "$997 USD",
+      monthlyPrice: "$1,697 USD",
       monthlyCadence: "/mo",
       inheritsFrom: "Includes everything in Growth Engine, plus:",
       phases: [
@@ -223,7 +223,7 @@ export const bundles: BundlesContent = {
           ],
         },
         {
-          title: "PHASE 2. Sales Machine",
+          title: "PHASE 2. Sales Machine & Follow-Up",
           items: [
             "Visual deal pipeline to track every commercial opportunity.",
             "Automated follow-up drip sequences via email and SMS.",
@@ -235,31 +235,40 @@ export const bundles: BundlesContent = {
             "Core pipeline tracking and commercial conversion reports.",
           ],
         },
+        {
+          title: "PHASE 3. Demand Generation with Meta Ads",
+          items: [
+            "Active management and continuous optimization of Meta Ads campaigns (Facebook & Instagram).",
+            "High-converting ad creatives, persuasive copywriting, and continuous A/B testing.",
+            "Included $400 USD/month managed ad spend budget directly applied to your Meta campaigns.",
+            "Instant CRM synchronization: new leads flow directly into your pipeline and trigger immediate follow-up sequences.",
+          ],
+        },
       ],
       maintenance: {
         title: "Maintenance & Support",
         items: [
-          "Active monitoring of automated workflows.",
-          "Minor flow refinements and standard priority support.",
-          "Monthly review of commercial sales funnel performance.",
+          "Meta Ads campaign monitoring and weekly performance optimization.",
+          "Active monitoring of automated workflows and minor configuration refinements.",
+          "Monthly review of commercial sales funnel, cost-per-lead, and conversion performance.",
         ],
       },
       consumptionNote:
-        "Telephony, SMS, transactional email, AI, and third-party tools are billed based on usage. Review rates and limits prior to enabling each tool.",
+        "Includes $400 USD/month of managed ad spend in Meta Ads. If you want to scale faster with additional ad budget, you only pay extra ad spend at direct cost. Telephony, carrier SMS, and third-party tools are billed based on usage.",
       idealFor:
-        "Service contractors, clinics, agencies, and businesses that need to convert more leads into paying customers.",
+        "Service contractors, clinics, agencies, and local businesses that want to acquire leads through paid ads and convert them via automated follow-up.",
       cta: { label: "Choose Sales Autopilot", kind: "apply" },
     },
     {
       id: "market-leader",
       name: "Market Leader",
-      tagline: "Artificial Intelligence & Advanced Automation",
+      tagline: "Artificial Intelligence, Automation & Omnichannel Ads (Meta + Google)",
       badge: "Premium",
       tier: "Premium",
       targetAudience:
-        "For companies looking to automate customer intake, recover lost opportunities, and scale operations with an integrated AI system.",
+        "For companies seeking market dominance: proactive acquisition via Google & Meta Ads, backed by immediate 24/7 intelligent AI response.",
       setupPrice: "$6,999 USD",
-      monthlyPrice: "$1,500 USD",
+      monthlyPrice: "$2,797 USD",
       monthlyCadence: "/mo",
       inheritsFrom: "Includes everything in Sales Autopilot, plus:",
       phases: [
@@ -285,18 +294,27 @@ export const bundles: BundlesContent = {
           ],
         },
         {
-          title: "PHASE 3. Premium Ongoing Advisory",
+          title: "PHASE 3. Omnichannel Acquisition: Meta Ads + Google Ads",
           items: [
-            "Priority VIP technical support and proactive workflow & AI monitoring.",
-            "Up to 4 hours per month for adjustments and continuous automation optimization.",
-            "Monthly strategic review to identify ongoing conversion opportunities.",
+            "High-intent Google Ads (Search) campaigns to capture customers actively looking for your services.",
+            "Meta Ads (Facebook & Instagram) campaigns for targeted demand generation and website retargeting.",
+            "Included $800 USD/month managed ad spend budget strategically allocated across Google and Meta.",
+            "Instant AI qualification: Google and Meta leads are greeted, pre-qualified, and booked 24/7.",
+          ],
+        },
+        {
+          title: "PHASE 4. Premium Ongoing Advisory",
+          items: [
+            "Priority VIP technical support and proactive workflow, AI, and ad campaign monitoring.",
+            "Up to 4 hours per month for adjustments and continuous automation and campaign optimization.",
+            "Monthly strategic review analyzing client acquisition cost, pipeline health, and advertising ROI.",
           ],
         },
       ],
       consumptionNote:
-        "10,000 SMS segments included monthly for eligible US destinations (subject to fair use). Additional segments, voice minutes, and AI tokens billed per provider rates.",
+        "Includes $800 USD/month in managed Google & Meta ad spend, plus 10,000 SMS segments for eligible US destinations. Additional ad spend is billed at transparent platform pass-through rates. AI voice minutes per provider rates.",
       idealFor:
-        "High-volume businesses needing automated operations, 24/7 coverage, and continuous client intake outside standard business hours.",
+        "High-volume companies requiring proactive omnichannel customer acquisition and 24/7 automated qualification without expanding headcount.",
       cta: { label: "Scale with Market Leader", kind: "apply" },
     },
   ],
@@ -340,10 +358,10 @@ export const billing: BillingContent = {
   columns: { item: "Commercial Maturity Plan", monthly: "One-Time Setup", annual: "Monthly Service" },
   rows: [
     { item: "Growth Engine (Starter)", monthly: "$1,999 USD", annual: "$497 USD/mo" },
-    { item: "Sales Autopilot (Recommended)", monthly: "$3,499 USD", annual: "$997 USD/mo" },
-    { item: "Market Leader (Premium)", monthly: "$6,999 USD", annual: "$1,500 USD/mo" },
+    { item: "Sales Autopilot (Recommended)", monthly: "$3,499 USD", annual: "$1,697 USD/mo (Includes $400 Meta ads)" },
+    { item: "Market Leader (Premium)", monthly: "$6,999 USD", annual: "$2,797 USD/mo (Includes $800 Meta + Google ads)" },
   ],
-  body: "Turnkey setup, hands-on onboarding training, and continuous bilingual technical support.",
+  body: "Turnkey setup, hands-on onboarding training, managed advertising budgets, and continuous bilingual technical support.",
 };
 
 export const payments: PaymentsContent = {
@@ -373,7 +391,7 @@ export const addOns: AddOnsContent = {
     "Google Business Profile setup & optimization",
     "Monthly SEO ranking management",
     "Social media management",
-    "Advertising on Facebook, Instagram, and Google",
+    "Additional advertising budget for campaigns",
   ],
   cta: { label: "Ask us on WhatsApp", kind: "whatsapp" },
 };
@@ -384,17 +402,22 @@ export const faq: FaqContent = {
     {
       question: "Why is setup charged separately?",
       answer:
-        "The initial implementation covers custom design, technical CRM setup, phone line provisioning, funnel building, workflow testing, and 1-on-1 team training. The monthly fee covers infrastructure, hosting, software licenses, and ongoing technical support.",
+        "The initial implementation covers custom design, technical CRM setup, ad tracking pixels and accounts configuration, funnel building, workflow testing, and 1-on-1 team training. The monthly fee covers infrastructure, hosting, ad campaign management, and ongoing technical support.",
+    },
+    {
+      question: "How does the included ad spend budget work on Sales Autopilot and Market Leader?",
+      answer:
+        "Your monthly plan already includes a dedicated managed advertising budget ($400 USD on Sales Autopilot for Meta Ads, and $800 USD on Market Leader for Meta + Google Ads). We handle strategy, ad creative design, copywriting, and daily campaign optimization. If you wish to invest more budget in any given month to accelerate growth, you can add ad spend at direct pass-through cost with zero management markups.",
     },
     {
       question: "Which plan is right for my business?",
       answer:
-        "If you want to stop losing leads, automate appointments, and follow up without hiring staff, we recommend Sales Autopilot. If you need a solid foundational presence with CRM, Growth Engine is your ideal entry point. If you handle high lead volume and want 24/7 AI response, Market Leader is built for you.",
+        "If you want to generate qualified leads on Facebook & Instagram and convert them with automated follow-ups and booked appointments without hiring staff, Sales Autopilot is our top recommendation. If you need a solid foundational presence with website and CRM, Growth Engine is your entry point. If you want to dominate your local market with Google Ads, Meta Ads, and 24/7 AI response, Market Leader is the ultimate end-to-end engine.",
     },
     {
       question: "How do call, SMS, and AI usage fees work?",
       answer:
-        "On Growth Engine and Sales Autopilot, telephony and carrier usage are billed strictly at transparent pass-through costs. Market Leader includes up to 10,000 monthly SMS segments for US numbers under fair use. All rates are reviewed with you before activating any channel.",
+        "On Growth Engine and Sales Autopilot, telephony and carrier usage are billed strictly at transparent pass-through costs. Market Leader includes up to 10,000 monthly SMS segments for US numbers under fair use, in addition to the $800 USD managed ad spend budget. All carrier rates are reviewed prior to activation.",
     },
     {
       question: "Do I have to sign a long-term contract?",

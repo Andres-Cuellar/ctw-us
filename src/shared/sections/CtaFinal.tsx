@@ -42,7 +42,7 @@ export function CtaFinal({ content, locale }: CtaFinalProps) {
           </div>
         )}
 
-        <SectionTitle size="lg" className="mx-auto max-w-[20ch]">
+        <SectionTitle size="lg" split={false} className="mx-auto max-w-[20ch]">
           {content.title}
         </SectionTitle>
 
@@ -77,7 +77,7 @@ export function CtaFinal({ content, locale }: CtaFinalProps) {
 
         {content.showPhoneMonument && (
           <div className="mt-20">
-            <p className="type-eyebrow text-[0.62rem] text-bone-45" data-reveal>
+            <p className="type-eyebrow text-[0.72rem] text-bone-45" data-reveal>
               O llámanos ahora mismo
             </p>
             <a
@@ -87,6 +87,7 @@ export function CtaFinal({ content, locale }: CtaFinalProps) {
             >
               <NeonText
                 hue="gold"
+                animated={false}
                 stutter="3,12"
                 className="type-marquee block text-[clamp(2.2rem,9vw,7rem)] leading-none"
               >

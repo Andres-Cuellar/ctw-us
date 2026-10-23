@@ -205,13 +205,13 @@ export const bundles: BundlesContent = {
     {
       id: "sales-autopilot",
       name: "Sales Autopilot",
-      tagline: "Automatización comercial\ny conversión",
+      tagline: "Automatización comercial,\nconversión y Meta Ads",
       badge: "Recomendado",
       tier: "Recomendado",
       targetAudience:
-        "Para negocios que reciben prospectos de manera constante y necesitan dar seguimiento, cerrar más ventas y reducir las ausencias a sus citas.",
+        "Para negocios que quieren generar prospectos calificados en redes sociales de manera constante, dar seguimiento automático y cerrar más ventas sin perder citas.",
       setupPrice: "$3.499 USD",
-      monthlyPrice: "$997 USD",
+      monthlyPrice: "$1.697 USD",
       monthlyCadence: "/mes",
       inheritsFrom: "Incluye todo lo del plan Growth Engine, más:",
       phases: [
@@ -224,7 +224,7 @@ export const bundles: BundlesContent = {
           ],
         },
         {
-          title: "FASE 2. Máquina de ventas",
+          title: "FASE 2. Máquina de ventas y seguimiento",
           items: [
             "Pipeline visual para controlar cada oportunidad comercial.",
             "Secuencias automáticas de seguimiento por correo y SMS.",
@@ -236,31 +236,40 @@ export const bundles: BundlesContent = {
             "Reportes básicos del pipeline y seguimiento comercial.",
           ],
         },
+        {
+          title: "FASE 3. Generación de demanda con Meta Ads",
+          items: [
+            "Gestión y optimización continua de campañas en Meta Ads (Facebook e Instagram).",
+            "Diseño de anuncios gráficos, copys persuasivos y pruebas A/B orientadas a captación.",
+            "Bolsa de inversión publicitaria de $400 USD/mes incluida en la mensualidad y administrada en Meta.",
+            "Sincronización instantánea con el CRM: los prospectos entran directo al pipeline y activan los seguimientos.",
+          ],
+        },
       ],
       maintenance: {
         title: "Mantenimiento y soporte",
         items: [
-          "Monitoreo de automatizaciones existentes.",
-          "Ajustes menores y soporte prioritario estándar.",
-          "Revisión mensual del funcionamiento del embudo comercial.",
+          "Monitoreo de campañas en Meta y optimización semanal de anuncios.",
+          "Monitoreo de automatizaciones existentes y ajustes menores.",
+          "Revisión mensual del funcionamiento del embudo y costo por lead.",
         ],
       },
       consumptionNote:
-        "Telefonía, SMS, correo de pago, IA y servicios externos se cobran según uso. Conoce tarifas y límites antes de activar cada servicio.",
+        "Incluye $400 USD al mes de inversión publicitaria en Meta Ads administrada por nuestro equipo. Si deseas acelerar con pauta adicional, solo pagas el consumo extra a costo real. Telefonía, SMS e integraciones de terceros se cobran según uso.",
       idealFor:
-        "Empresas de servicios, clínicas, agencias y negocios que necesitan convertir más prospectos en clientes.",
+        "Empresas de servicios, contratistas, clínicas y negocios locales que quieren captar clientes con pauta y convertirlos con seguimiento automatizado.",
       cta: { label: "Elegir Sales Autopilot", kind: "apply" },
     },
     {
       id: "market-leader",
       name: "Market Leader",
-      tagline: "Inteligencia artificial y automatización avanzada",
+      tagline: "Inteligencia artificial, automatización y pauta omnicanal (Meta + Google)",
       badge: "Premium",
       tier: "Premium",
       targetAudience:
-        "Para empresas que quieren automatizar la atención, recuperar oportunidades comerciales y escalar su operación con un sistema integrado.",
+        "Para empresas que quieren dominar su mercado: captación activa con Google y Meta Ads, y atención inteligente inmediata 24/7 con IA.",
       setupPrice: "$6.999 USD",
-      monthlyPrice: "$1.500 USD",
+      monthlyPrice: "$2.797 USD",
       monthlyCadence: "/mes",
       inheritsFrom: "Incluye todo lo del plan Sales Autopilot, más:",
       phases: [
@@ -275,7 +284,7 @@ export const bundles: BundlesContent = {
         {
           title: "FASE 2. Inteligencia artificial y comunicaciones",
           items: [
-            "Agente conversacional de IA disponible 24/7 para responder preguntas frecuentes, calificar prospectos y facilitar reservas.",
+            "Agente conversacional de IA disponible 24/7 para responder preguntas frecuentes, calificar prospectos y agendar citas.",
             "Entrenamiento inicial de la IA con la información y documentos aprobados del negocio.",
             "Integración de IA con el CRM y los flujos comerciales compatibles.",
             "Línea telefónica comercial local (sujeta a disponibilidad y requisitos del proveedor).",
@@ -286,18 +295,27 @@ export const bundles: BundlesContent = {
           ],
         },
         {
-          title: "FASE 3. Acompañamiento premium",
+          title: "FASE 3. Adquisición omnicanal: Meta Ads + Google Ads",
           items: [
-            "Soporte técnico prioritario y monitoreo de flujos y agente IA.",
-            "Hasta 4 horas mensuales de ajustes y optimización de automatizaciones existentes.",
-            "Revisión mensual de oportunidades de mejora continua.",
+            "Campañas de alta intención en Google Ads (Búsqueda) para captar clientes buscando activamente tu servicio.",
+            "Campañas en Meta Ads (Facebook e Instagram) para generación de demanda y retargeting.",
+            "Bolsa de inversión publicitaria de $800 USD/mes incluida en la mensualidad, administrada estratégicamente.",
+            "Atención y calificación inmediata con IA: los prospectos de Google y Meta son atendidos y calificados 24/7.",
+          ],
+        },
+        {
+          title: "FASE 4. Acompañamiento premium",
+          items: [
+            "Soporte técnico prioritario VIP y monitoreo proactivo de flujos, IA y pauta publicitaria.",
+            "Hasta 4 horas mensuales de ajustes y optimización continua de campañas y automatizaciones.",
+            "Revisión mensual de resultados comerciales, costo por adquisición y retorno de inversión.",
           ],
         },
       ],
       consumptionNote:
-        "10.000 segmentos SMS incluidos mensualmente para destinos EE.UU. elegibles (sujeto a uso razonable). Segmentos adicionales, llamadas, voz de IA y operadores externos se facturan según tarifas reales del proveedor.",
+        "Incluye $800 USD al mes de inversión publicitaria administrada en Google y Meta Ads, más 10.000 segmentos SMS para EE.UU. Inversión publicitaria adicional se factura a costo real sin recargos. Llamadas de voz e IA según tarifas del proveedor.",
       idealFor:
-        "Empresas con volumen importante de consultas y clientes que necesitan automatizar procesos y atención fuera del horario laboral.",
+        "Empresas con volumen importante que buscan captación activa multicanal y atención automatizada 24/7 sin contratar más personal.",
       cta: { label: "Escalar con Market Leader", kind: "apply" },
     },
   ],
@@ -341,10 +359,10 @@ export const billing: BillingContent = {
   columns: { item: "Plan de Madurez Comercial", monthly: "Implementación Única", annual: "Servicio Mensual" },
   rows: [
     { item: "Growth Engine (Starter)", monthly: "$1.999 USD", annual: "$497 USD/mes" },
-    { item: "Sales Autopilot (Recomendado)", monthly: "$3.499 USD", annual: "$997 USD/mes" },
-    { item: "Market Leader (Premium)", monthly: "$6.999 USD", annual: "$1.500 USD/mes" },
+    { item: "Sales Autopilot (Recomendado)", monthly: "$3.499 USD", annual: "$1.697 USD/mes (Incluye $400 Meta)" },
+    { item: "Market Leader (Premium)", monthly: "$6.999 USD", annual: "$2.797 USD/mes (Incluye $800 Meta + Google)" },
   ],
-  body: "Configuración llave en mano, capacitación incluida y soporte técnico continuo en español.",
+  body: "Configuración llave en mano, capacitación incluida, presupuesto publicitario administrado y soporte técnico continuo en español.",
 };
 
 export const payments: PaymentsContent = {
@@ -374,7 +392,7 @@ export const addOns: AddOnsContent = {
     "Configuración de Google Business Profile",
     "SEO mensual",
     "Manejo de redes sociales",
-    "Publicidad en Facebook, Instagram y Google",
+    "Presupuesto publicitario adicional para campañas",
   ],
   cta: { label: "Pregúntanos por WhatsApp", kind: "whatsapp" },
 };
@@ -385,17 +403,22 @@ export const faq: FaqContent = {
     {
       question: "¿Por qué el setup o implementación se cobra por separado?",
       answer:
-        "La implementación inicial cubre el diseño del sitio web, la integración técnica del CRM, configuración de números, embudos, flujos y capacitación personalizada. La mensualidad cubre la infraestructura, mantenimiento, licencias y soporte continuo.",
+        "La implementación inicial cubre el diseño del sitio web, la integración técnica del CRM, configuración de píxeles y cuentas publicitarias, embudos, flujos y capacitación personalizada. La mensualidad cubre la infraestructura, mantenimiento, gestión de pauta y soporte continuo.",
+    },
+    {
+      question: "¿Cómo funciona la inversión publicitaria incluida en Sales Autopilot y Market Leader?",
+      answer:
+        "Tu mensualidad ya incluye una bolsa fija de inversión publicitaria ($400 USD en Sales Autopilot para Meta Ads, y $800 USD en Market Leader para Meta + Google Ads) administrada por nosotros. Si en cualquier mes quieres invertir más pauta para acelerar tu crecimiento, puedes sumar presupuesto adicional abonando únicamente el consumo real de las plataformas sin recargo alguno de gestión.",
     },
     {
       question: "¿Cuál de los tres planes es el recomendado para mi negocio?",
       answer:
-        "Si buscas dejar de perder prospectos y automatizar citas y seguimientos sin contratar más personal, recomendamos Sales Autopilot. Si necesitas presencia básica estructurada con CRM, Growth Engine es el punto de inicio. Si manejas un alto volumen y buscas atención inteligente 24/7 y reactivación comercial, Market Leader es la opción ideal.",
+        "Si buscas generar clientes potenciales en Facebook e Instagram y convertirlos con seguimiento automático y citas sin contratar personal, Sales Autopilot es el más recomendado. Si necesitas una base profesional con web y CRM, Growth Engine es el punto de inicio. Si buscas liderar tu mercado con Google Ads, Meta Ads y atención con IA 24/7, Market Leader es la solución integral definitiva.",
     },
     {
       question: "¿Qué pasa con los consumos de llamadas, SMS e IA?",
       answer:
-        "En Growth Engine y Sales Autopilot, telefonía y consumos de terceros se facturan según uso transparente. En Market Leader incluimos hasta 10.000 segmentos SMS al mes para EE.UU. bajo política de uso razonable. Conocerás todas las tarifas y límites antes de activar cada servicio.",
+        "En Growth Engine y Sales Autopilot, telefonía y consumos de terceros se facturan según uso transparente. En Market Leader incluimos hasta 10.000 segmentos SMS al mes para EE.UU. bajo política de uso razonable, además de los $800 USD de inversión publicitaria. Conocerás todas las tarifas antes de activar cada servicio.",
     },
     {
       question: "¿Tengo que firmar un contrato a largo plazo?",

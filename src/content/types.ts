@@ -80,6 +80,8 @@ export interface HeroContent extends Eyebrowed {
   backdrop?: Media;
   /** Floating notifications around the headline. */
   feed?: FeedItem[];
+  /** Irresistible offer banner shown under the hero CTA. */
+  offer?: { title: string; body: string };
 }
 
 export interface ProblemContent {
@@ -260,11 +262,15 @@ export interface Bundle {
   monthlyPrice: string;
   monthlyCadence?: string;
   inheritsFrom?: string;
-  phases: PlanPhase[];
+  phases?: PlanPhase[];
   maintenance?: PlanMaintenance;
   consumptionNote?: string;
-  idealFor: string;
+  idealFor?: string;
   cta?: Cta;
+  /** Bullet features shown under the plan card. */
+  features?: string[];
+  /** Annual promo line, e.g. "🔥 Promo Anual: ...". */
+  annualPromo?: string;
 }
 
 export interface CommercialCondition {
@@ -439,6 +445,52 @@ export interface GlobalContent {
 export interface PageSeo {
   title: string;
   description: string;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Niche landing pages                                                        */
+/* -------------------------------------------------------------------------- */
+
+export interface SystemFeature {
+  icon: ServiceIcon;
+  title: string;
+  body: string;
+}
+
+export interface SystemContent {
+  eyebrow: string;
+  title: string;
+  body?: string;
+  features: SystemFeature[];
+}
+
+export interface Review {
+  quote: string;
+  name: string;
+  business: string;
+  city?: string;
+  rating?: number;
+}
+
+export interface ReviewsContent {
+  eyebrow: string;
+  title: string;
+  /** Shown when the reviews are illustrative samples, not verified clients. */
+  disclaimer?: string;
+  reviews: Review[];
+}
+
+export interface NicheFaqContent {
+  eyebrow: string;
+  title: string;
+  items: FaqItem[];
+}
+
+export interface FormSectionContent {
+  eyebrow: string;
+  title: string;
+  body?: string;
+  fallbackLabel: string;
 }
 
 /* -------------------------------------------------------------------------- */
