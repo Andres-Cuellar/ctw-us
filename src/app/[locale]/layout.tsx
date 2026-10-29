@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import "../globals.css";
 
 import { getGlobalContent } from "@/content";
@@ -42,6 +43,10 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(site.url),
+    icons: {
+      icon: { url: "/icono.png", type: "image/png", sizes: "500x500" },
+      apple: "/icono.png",
+    },
     title: {
       default: isEn
         ? "Websites in the Southwest for Local Businesses | creamostuweb"
@@ -90,6 +95,15 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="pb-16 md:pb-0">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-P5D3WTLC"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <a
           href="#contenido"
           className="type-label sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-gold focus:px-5 focus:py-2.5 focus:text-night"
@@ -106,6 +120,13 @@ export default async function LocaleLayout({
         <BookingDialog locale={locale} />
 
         <LocalBusinessSchema locale={locale} />
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P5D3WTLC');`}
+        </Script>
       </body>
     </html>
   );
