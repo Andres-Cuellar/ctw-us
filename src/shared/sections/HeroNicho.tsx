@@ -82,7 +82,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
       <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-12 pt-16 pb-20 md:pt-24 md:pb-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           {/* Left Column: Copy, Professional CTAs & Offer */}
-          <div className="flex flex-col gap-6 lg:col-span-7" data-reveal>
+          <div className="flex min-w-0 flex-col gap-6 lg:col-span-8 xl:col-span-7" data-reveal>
             <div className="flex items-center gap-2.5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -108,16 +108,16 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
             </p>
 
             {/* CTAs with SVG Icons & Hover Glow */}
-            <div className="mt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center" data-reveal>
+            <div className="mt-2 flex w-full min-w-0 flex-col gap-3 min-[430px]:flex-row min-[430px]:flex-wrap min-[430px]:items-center sm:gap-4" data-reveal>
               {primary && (
-                <div className="relative group">
+                <div className="relative group w-full min-[430px]:w-auto">
                   <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-gold/60 via-amber-400 to-gold blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
                   <CtaButton
                     cta={primary}
                     locale={locale}
                     variant="gold"
                     size="lg"
-                    className="relative w-full sm:w-auto shadow-[0_0_28px_rgba(237,152,15,0.45)] hover:shadow-[0_0_42px_rgba(237,152,15,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-bold"
+                    className="relative w-full min-[430px]:w-auto whitespace-nowrap px-3 py-3 text-xs sm:px-8 sm:py-4 sm:text-base shadow-[0_0_28px_rgba(237,152,15,0.45)] hover:shadow-[0_0_42px_rgba(237,152,15,0.7)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-bold"
                   />
                 </div>
               )}
@@ -127,7 +127,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
                   locale={locale}
                   variant="tube"
                   size="lg"
-                  className="w-full sm:w-auto bg-night-2/80 backdrop-blur-md border border-gold/40 text-bone hover:border-gold hover:bg-gold/15 hover:text-gold hover:shadow-[0_0_25px_rgba(237,152,15,0.25)] transition-all duration-300 font-semibold"
+                  className="w-full min-[430px]:w-auto whitespace-nowrap px-3 py-3 text-xs sm:px-8 sm:py-4 sm:text-base bg-night-2/80 backdrop-blur-md border border-gold/40 text-bone hover:border-gold hover:bg-gold/15 hover:text-gold hover:shadow-[0_0_25px_rgba(237,152,15,0.25)] transition-all duration-300 font-semibold"
                 />
               )}
             </div>
@@ -139,7 +139,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
                 </span>
-                Respuesta en menos de 3 minutos
+                {locale === "en" ? "Response in under 3 minutes" : "Respuesta en menos de 3 minutos"}
               </span>
               <span className="flex items-center gap-1.5 text-bone-45">
                 <span className="flex items-center gap-0.5 text-gold">
@@ -149,7 +149,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
                   <StarIcon className="size-3.5 fill-gold text-gold" />
                   <StarIcon className="size-3.5 fill-gold text-gold" />
                 </span>
-                <span>4.9/5 valoración · +50 negocios activos · Sin contratos forzosos</span>
+                <span>{locale === "en" ? "4.9/5 rating · 50+ active businesses · No long-term contracts" : "4.9/5 valoración · +50 negocios activos · Sin contratos forzosos"}</span>
               </span>
             </div>
 
@@ -159,11 +159,11 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
                 className="mt-2 rounded-2xl border border-gold/40 bg-gradient-to-r from-gold/15 via-gold/5 to-transparent p-5 md:p-6 shadow-[0_0_35px_-12px_rgba(236,152,11,0.3)] backdrop-blur-sm"
                 data-reveal
               >
-                <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
+                <div className="flex flex-wrap items-center gap-2 text-gold font-bold text-xs uppercase tracking-wider">
                   <ShieldCheckIcon className="size-4 shrink-0 text-gold" />
                   <span>{content.offer.title.replace(/^[\p{Emoji}\uFE0F\s]+/u, "")}</span>
-                  <span className="ml-auto rounded-full bg-gold/20 border border-gold/40 px-2.5 py-0.5 text-[0.62rem] text-gold font-extrabold uppercase tracking-wider">
-                    Ahorro de hasta $6,999 USD
+                  <span className="rounded-full bg-gold/20 border border-gold/40 px-2.5 py-0.5 text-[0.62rem] text-gold font-extrabold uppercase tracking-wider sm:ml-auto">
+                    {locale === "en" ? "Save up to $6,999 USD" : "Ahorro de hasta $6,999 USD"}
                   </span>
                 </div>
                 <p className="mt-2 text-xs md:text-sm text-bone-70 leading-relaxed">
@@ -174,7 +174,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
           </div>
 
           {/* Right Column: Live System HUD (Visual Simulation of the Machine in Action) */}
-          <div className="relative lg:col-span-5" data-reveal>
+          {false && <div className="relative lg:col-span-5" data-reveal>
             {/* Ambient Bloom behind HUD */}
             <div
               className={`absolute -inset-4 rounded-3xl blur-2xl opacity-40 -z-10 ${
@@ -297,7 +297,7 @@ export function HeroNicho({ content, locale, nicho }: HeroNichoProps) {
                 <p className="text-[0.62rem] text-bone-45">Enviadas vía SMS al finalizar el servicio</p>
               </div>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
     </section>

@@ -158,10 +158,10 @@ export const steps: StepsContent = {
   steps: [
     {
       title: "Apply in 2 minutes",
-      body: "Tell us about your business through the form or on WhatsApp.",
+      body: "Choose a time on the calendar or message us on WhatsApp.",
     },
     {
-      title: "15-minute consultation",
+      title: "30-minute consultation",
       body: "We explain what you need, what you don't, and clear pricing without fine print.",
     },
     {
@@ -244,7 +244,7 @@ export const faq: FaqContent = {
     {
       question: "How much does a website cost?",
       answer:
-        "It depends on your business needs. We offer everything from single landing pages to complete stores and CRM systems, all with financing options. On a quick 15-minute call, we'll give you an exact quote.",
+        "It depends on your business needs. We offer everything from single landing pages to complete stores and CRM systems, all with financing options. On a 30-minute call, we'll give you an exact quote.",
     },
     {
       question: "How long does it take?",

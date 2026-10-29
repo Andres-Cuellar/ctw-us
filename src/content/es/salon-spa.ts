@@ -25,19 +25,18 @@ export function salonSpaHero(city: string): HeroContent {
   return {
     eyebrow: `Tecnología y Adquisición para Spas y Salones en ${city}`,
     title:
-      "Sillones llenos, citas pagadas por adelantado y cero cancelaciones.",
+      "Tu sistema cierra al próximo cliente mientras atiendes a quien ya está contigo.",
     subtitle:
-      "Convierte tu salón en {{city}} en un negocio que funciona solo. Te traemos clientes nuevos con publicidad, te entregamos un sistema de reservas 24/7 y cobramos los depósitos para que nunca vuelvas a perder dinero por una silla vacía.",
-    primaryCta: { label: "Hablar por WhatsApp", kind: "whatsapp" },
+      "Deja de perder dinero por no poder contestar el teléfono. Te instalamos la infraestructura completa —web, CRM y automatizaciones— para convertir mensajes perdidos en citas automáticamente.",
+    primaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
     secondaryCta: {
-      label: "Quiero llenar mi agenda",
-      kind: "anchor",
-      href: "#formulario",
+      label: "Hablar con un asesor",
+      kind: "whatsapp",
     },
     offer: {
       title: "OFERTA EXCLUSIVA ANUAL",
       body:
-        "Paga tu año de licencia por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
+        "Paga 6 meses de licencia por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
     },
   };
 }
@@ -76,12 +75,14 @@ export function salonSpaBundles(city: string): BundlesContent {
         targetAudience:
           "Para el salón que quiere verse premium, organizar sus citas y no perder contactos.",
         setupPrice: "$1,999 USD",
+        setupPromoPrice: "$999.50 USD",
         monthlyPrice: "$497 USD",
         monthlyCadence: "/mes",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $1,999 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $1,999 de implementación.",
         cta: { label: "Quiero destacar mi Salón", kind: "apply" },
         features: [
+          "Recepcionista con IA gratis durante los primeros 2 meses: hasta 5,000 mensajes para resolver consultas y agendar citas.",
           "Web elegante y rápida (hasta 5 páginas).",
           "Bandeja unificada: Todo tu WhatsApp, Instagram DM y Messenger en un solo lugar.",
           "Rescate de llamadas perdidas automático por SMS.",
@@ -96,13 +97,15 @@ export function salonSpaBundles(city: string): BundlesContent {
         targetAudience:
           "Para el spa o salón que quiere clientes nuevos todos los meses y exige depósitos para evitar cancelaciones.",
         setupPrice: "$3,499 USD",
+        setupPromoPrice: "$1,749.50 USD",
         monthlyPrice: "$1,697 USD",
         monthlyCadence: "/mes",
         inheritsFrom: "Incluye todo lo de Growth Engine, más:",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $3,499 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $3,499 de implementación.",
         cta: { label: "Quiero cero cancelaciones", kind: "apply" },
         features: [
+          "Recepcionista con IA incluida para resolver consultas y agendar citas.",
           "Meta Ads (Facebook/Instagram): Gestión de campañas para traerte clientes de servicios de belleza y spa.",
           "Bolsa de inversión incluida: $400 USD/mes de pauta publicitaria ya incluidos.",
           "Sistema de reservas en línea avanzado (por servicio y especialista).",
@@ -118,17 +121,20 @@ export function salonSpaBundles(city: string): BundlesContent {
         targetAudience:
           "Para clínicas y salones de alto volumen que quieren atención con Inteligencia Artificial y dominar las búsquedas.",
         setupPrice: "$6,999 USD",
+        setupPromoPrice: "$3,499.50 USD",
         monthlyPrice: "$2,797 USD",
         monthlyCadence: "/mes",
         inheritsFrom: "Incluye todo lo de Sales Autopilot, más:",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $6,999 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $6,999 de implementación.",
         cta: { label: "Quiero la máxima tecnología", kind: "apply" },
         features: [
           "Adquisición Omnicanal (Google Ads + Meta Ads): Aparece de primero cuando alguien busque “mejor spa/salón cerca de mi” en Google.",
           "Bolsa de inversión premium: $800 USD/mes de pauta publicitaria ya incluidos.",
           "Recepcionista con Inteligencia Artificial que chatea, cotiza y agenda directo en tu calendario.",
           "Reactivación masiva por SMS para clientes inactivos.",
+          "Recuperación de conversaciones sin respuesta y seguimiento automatizado de prospectos.",
+          "Automatizaciones avanzadas para seguimiento, reactivación de clientes y citas.",
         ],
       },
     ],
@@ -308,9 +314,9 @@ export function salonSpaCtaFinal(): CtaBandContent {
   return {
     title: "¿Listo para llenar tu agenda?",
     body:
-      "Agenda una llamada gratis de 15 minutos y te decimos exactamente qué necesita tu salón o spa, y qué no.",
+      "Agenda una asesoría gratuita de 30 minutos y revisamos qué necesita tu salón o spa.",
     primaryCta: { label: "Hablar por WhatsApp", kind: "whatsapp" },
-    secondaryCta: { label: "Agenda tu llamada de 15 min", kind: "apply" },
+    secondaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
     showPhoneMonument: true,
   };
 }

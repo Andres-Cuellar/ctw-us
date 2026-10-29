@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { getGlobalContent } from "@/content";
-import { site, type Locale } from "@/shared/config/site";
+import type { Locale } from "@/shared/config/site";
 import { cn } from "@/shared/lib/cn";
+import { whatsappHref } from "@/shared/lib/routes";
 
 interface WhatsAppFabProps {
   locale?: Locale;
@@ -22,7 +23,7 @@ export function WhatsAppFab({ locale = "es" }: WhatsAppFabProps) {
 
   return (
     <a
-      href={site.whatsapp.href}
+      href={whatsappHref(locale)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={fab.ariaLabel}

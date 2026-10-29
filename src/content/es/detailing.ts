@@ -25,19 +25,18 @@ export function detailingHero(city: string): HeroContent {
   return {
     eyebrow: `Más clientes para tu negocio de detailing en ${city}`,
     title:
-      "Mientras trabajas en un auto, tu sistema puede atender al próximo cliente.",
+      "Mientras trabajas en un auto, tu sistema cierra al próximo cliente.",
     subtitle:
-      "Te instalamos una máquina de ventas y te traemos a los clientes. Web, CRM, Automatizaciones, Anuncios y más. Nosotros llenamos tu calendario.",
-    primaryCta: { label: "Escríbenos por WhatsApp", kind: "whatsapp" },
+      "Deja de perder dinero por no poder contestar el teléfono. Te instalamos la infraestructura completa —web, CRM y automatizaciones— para convertir mensajes perdidos en citas automáticamente.",
+    primaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
     secondaryCta: {
-      label: "Quiero llenar mi agenda",
-      kind: "anchor",
-      href: "#formulario",
+      label: "Hablar con un asesor",
+      kind: "whatsapp",
     },
     offer: {
       title: "OFERTA EXCLUSIVA ANUAL",
       body:
-        "Paga tu año de servicio por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
+        "Paga 6 meses de servicio por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
     },
   };
 }
@@ -76,12 +75,14 @@ export function detailingBundles(city: string): BundlesContent {
         targetAudience:
           "Para el detailer que necesita presencia profesional y dejar de perder clientes por llamadas perdidas.",
         setupPrice: "$1,999 USD",
+        setupPromoPrice: "$999.50 USD",
         monthlyPrice: "$497 USD",
         monthlyCadence: "/mes",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $1,999 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $1,999 de implementación.",
         cta: { label: "Arrancar con Growth Engine", kind: "apply" },
         features: [
+          "Recepcionista con IA gratis durante los primeros 2 meses: hasta 5,000 mensajes para resolver consultas y agendar citas.",
           "Web de alta conversión (hasta 5 páginas).",
           "Sistema automático de respuesta a llamadas perdidas por SMS.",
           "Todas tus conversaciones (Instagram, Facebook, WhatsApp, SMS) en una sola bandeja.",
@@ -96,13 +97,15 @@ export function detailingBundles(city: string): BundlesContent {
         targetAudience:
           "Para el detailer que quiere clientes en automático con publicidad y cobrar depósitos.",
         setupPrice: "$3,499 USD",
+        setupPromoPrice: "$1,749.50 USD",
         monthlyPrice: "$1,697 USD",
         monthlyCadence: "/mes",
         inheritsFrom: "Incluye todo lo de Growth Engine, más:",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $3,499 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $3,499 de implementación.",
         cta: { label: "Quiero automatizar mis ventas", kind: "apply" },
         features: [
+          "Recepcionista con IA incluida para resolver consultas y agendar citas.",
           "Meta Ads (Facebook/Instagram): Gestión de campañas para traerte clientes de detailing todos los días.",
           "Bolsa de inversión incluida: $400 USD/mes de pauta publicitaria ya incluidos en tu mensualidad.",
           "Calendario 24/7 con cobro de anticipos/depósitos automáticos.",
@@ -118,17 +121,20 @@ export function detailingBundles(city: string): BundlesContent {
         targetAudience:
           "Para el dueño de negocio que quiere dominar su mercado con IA y Google Ads.",
         setupPrice: "$6,999 USD",
+        setupPromoPrice: "$3,499.50 USD",
         monthlyPrice: "$2,797 USD",
         monthlyCadence: "/mes",
         inheritsFrom: "Incluye todo lo de Sales Autopilot, más:",
         annualPromo:
-          "Promo Anual: Paga los 12 meses de licencia y te regalamos los $6,999 de implementación.",
+          "Promo Anual: Paga los ~~12~~ 6 meses de licencia y te regalamos los $6,999 de implementación.",
         cta: { label: "Quiero dominar mi mercado", kind: "apply" },
         features: [
           "Adquisición Omnicanal (Google Ads + Meta Ads): Captamos clientes que buscan activamente “auto detailing cerca de mi” en Google.",
           "Bolsa de inversión premium: $800 USD/mes de pauta publicitaria ya incluidos en tu mensualidad.",
           "Recepcionista con IA 24/7: Responde cotizaciones, califica clientes y agenda citas por ti.",
           "10,000 SMS al mes para campañas de reactivación.",
+          "Recuperación de conversaciones sin respuesta y seguimiento automatizado de prospectos.",
+          "Automatizaciones avanzadas para seguimiento, reactivación de clientes y citas.",
         ],
       },
     ],
@@ -308,9 +314,9 @@ export function detailingCtaFinal(): CtaBandContent {
   return {
     title: "¿Listo para llenar tu agenda?",
     body:
-      "Agenda una llamada gratis de 15 minutos y te decimos exactamente qué necesita tu negocio de detailing, y qué no.",
+      "Agenda una asesoría gratuita de 30 minutos y revisamos qué necesita tu negocio de detailing.",
     primaryCta: { label: "Escríbenos por WhatsApp", kind: "whatsapp" },
-    secondaryCta: { label: "Agenda tu llamada de 15 min", kind: "apply" },
+    secondaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
     showPhoneMonument: true,
   };
 }

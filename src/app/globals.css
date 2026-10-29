@@ -536,6 +536,37 @@
   }
 }
 
+@utility marquee-track-reverse {
+  animation: marquee-slide-reverse 48s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes marquee-slide-reverse {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.testimonial-track-left {
+  animation: marquee-slide 42s linear infinite;
+}
+
+.testimonial-track-right {
+  animation: marquee-slide-reverse 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none !important;
+  }
+}
+
 /* ===========================================================================
    Photography
    ---------------------------------------------------------------------------

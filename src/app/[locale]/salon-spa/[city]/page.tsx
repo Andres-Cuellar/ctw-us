@@ -7,7 +7,6 @@ import { CrudaRealidad } from "@/shared/sections/CrudaRealidad";
 import { SistemaNicho } from "@/shared/sections/SistemaNicho";
 import { PlanesNicho } from "@/shared/sections/PlanesNicho";
 import { ReviewsNicho } from "@/shared/sections/ReviewsNicho";
-import { FormNicho } from "@/shared/sections/FormNicho";
 import { FaqNicho } from "@/shared/sections/FaqNicho";
 import { AreasServicio } from "@/shared/sections/AreasServicio";
 import { CtaFinal } from "@/shared/sections/CtaFinal";
@@ -25,10 +24,7 @@ interface CityPageProps {
 }
 
 export function generateStaticParams() {
-  return NICHO_CITIES.map((city) => ({
-    locale: "es",
-    city: city.slug,
-  }));
+  return NICHO_CITIES.map((city) => ({ city: city.slug }));
 }
 
 export async function generateMetadata({
@@ -40,7 +36,8 @@ export async function generateMetadata({
   if (!ciudad) return {};
   const content = getSalonSpaContent(locale);
   if (!content) return {};
-  const seo = content.salonSpaSeo(ciudad.name, ciudad.name.toLowerCase());
+  const cityName = locale === "en" ? ciudad.name.replace("Los Ángeles", "Los Angeles") : ciudad.name;
+  const seo = content.salonSpaSeo(cityName, cityName.toLowerCase());
   return {
     title: { absolute: seo.title },
     description: seo.description,
@@ -61,15 +58,15 @@ export default async function CitySalonSpaPage({
   const content = getSalonSpaContent(locale);
   if (!content) notFound();
 
-  const cityLower = ciudad.name.toLowerCase();
+  const cityName = locale === "en" ? ciudad.name.replace("Los Ángeles", "Los Angeles") : ciudad.name;
+  const cityLower = cityName.toLowerCase();
 
-  const hero = interpolateCity(content.salonSpaHero(ciudad.name), ciudad.name, cityLower);
-  const problem = interpolateCity(content.salonSpaProblem(), ciudad.name, cityLower);
-  const system = interpolateCity(content.salonSpaSystem(), ciudad.name, cityLower);
-  const bundles = interpolateCity(content.salonSpaBundles(ciudad.name), ciudad.name, cityLower);
-  const reviews = interpolateCity(content.salonSpaReviews(), ciudad.name, cityLower);
-  const form = content.salonSpaForm();
-  const faq = interpolateCity(content.salonSpaFaq(ciudad.name), ciudad.name, cityLower);
+  const hero = interpolateCity(content.salonSpaHero(cityName), cityName, cityLower);
+  const problem = interpolateCity(content.salonSpaProblem(), cityName, cityLower);
+  const system = interpolateCity(content.salonSpaSystem(), cityName, cityLower);
+  const bundles = interpolateCity(content.salonSpaBundles(cityName), cityName, cityLower);
+  const reviews = interpolateCity(content.salonSpaReviews(), cityName, cityLower);
+  const faq = interpolateCity(content.salonSpaFaq(cityName), cityName, cityLower);
   const ctaFinal = content.salonSpaCtaFinal();
 
   return (
@@ -78,14 +75,13 @@ export default async function CitySalonSpaPage({
       <CrudaRealidad content={problem} locale={locale} nicho="salon-spa" />
       <SistemaNicho content={system} nicho="salon-spa" />
       <PlanesNicho content={bundles} locale={locale} nicho="salon-spa" />
-      <ReviewsNicho content={reviews} nicho="salon-spa" />
-      <FormNicho nicho="salon-spa" content={form} />
+      <ReviewsNicho content={reviews} locale={locale} nicho="salon-spa" />
       <FaqNicho content={faq} nicho="salon-spa" />
       <AreasServicio
         locale={locale}
         nicho="salon-spa"
         currentCity={ciudad.slug}
-        label="Ayudamos a salones y spas en todo el Suroeste y California"
+        label={locale === "en" ? "Helping salons and spas across the Southwest and California" : "Ayudamos a salones y spas en todo el Suroeste y California"}
       />
       <CtaFinal content={ctaFinal} locale={locale} />
     </>

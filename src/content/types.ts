@@ -259,6 +259,7 @@ export interface Bundle {
   tier: string;
   targetAudience: string;
   setupPrice: string;
+  setupPromoPrice?: string;
   monthlyPrice: string;
   monthlyCadence?: string;
   inheritsFrom?: string;

@@ -13,7 +13,7 @@ import { site } from "@/shared/config/site";
 export const contactoSeo: PageSeo = {
   title: "Contacto y Cotización Gratis | creamostuweb Suroeste",
   description:
-    "Escríbenos por WhatsApp o agenda una llamada gratis de 15 minutos. Respondemos el mismo día en español o inglés.",
+    "Escríbenos por WhatsApp o agenda una asesoría gratuita de 30 minutos en nuestro calendario.",
 };
 
 export const hero: HeroContent = {
@@ -21,6 +21,7 @@ export const hero: HeroContent = {
   title: "Hablemos de tu negocio",
   subtitle:
     "Escríbenos, llámanos o visítanos. Te respondemos el mismo día hábil, en español o en inglés.",
+  primaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
 };
 
 export const form: FormContent = {

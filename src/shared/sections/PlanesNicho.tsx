@@ -27,7 +27,7 @@ export function PlanesNicho({ content, locale, nicho }: PlanesNichoProps) {
       <div className="mx-auto w-full max-w-[1280px] px-5 pt-20 pb-24 sm:px-8 md:pt-24 md:pb-28 lg:px-12">
         <div className="max-w-[60ch] mb-16" data-reveal>
           <Eyebrow hue={hue} data-reveal>
-            Elige tu sistema
+            {locale === "en" ? "Choose your system" : "Elige tu sistema"}
           </Eyebrow>
           <SectionTitle size="lg" split={false} className="mt-2 leading-tight text-bone" data-reveal>
             {content.title}
@@ -41,7 +41,7 @@ export function PlanesNicho({ content, locale, nicho }: PlanesNichoProps) {
 
         <div className="grid gap-8 md:grid-cols-3" data-reveal>
           {content.bundles.map((bundle) => {
-            const isRecommended = bundle.badge === "Recomendado" || bundle.tier === "Recomendado";
+            const isRecommended = bundle.badge === "Recomendado" || bundle.tier === "Recomendado" || bundle.tier === "Recommended";
             const isPremium = bundle.badge === "Premium" || bundle.tier === "Premium";
 
             return (
@@ -126,9 +126,10 @@ function PlanCard({
       {/* Pricing */}
       <div className="mb-8 rounded-xl border border-bone/10 bg-night/80 p-5 md:p-6">
         <div className="flex items-center justify-between border-b border-bone/10 pb-3">
-          <span className="text-xs text-bone-45">Implementación única</span>
-          <span className="text-xs font-semibold text-bone-70" data-numeric>
-            {bundle.setupPrice}
+          <span className="text-xs text-bone-45">{locale === "en" ? "One-time setup" : "Implementación única"}</span>
+          <span className="text-right text-xs font-semibold text-bone-70" data-numeric>
+            {bundle.setupPromoPrice && <span className="mr-2 text-bone-45 line-through">{bundle.setupPrice}</span>}
+            {bundle.setupPromoPrice ?? bundle.setupPrice}
           </span>
         </div>
         <div className="pt-4">
@@ -139,7 +140,7 @@ function PlanCard({
             <span className="text-xs font-medium text-bone-45">{bundle.monthlyCadence || "/mes"}</span>
           </div>
           <p className="text-xs text-bone-45 leading-relaxed">
-            Licencia & soporte
+            {locale === "en" ? "License & support" : "Licencia & soporte"}
           </p>
         </div>
       </div>
@@ -155,8 +156,19 @@ function PlanCard({
       {bundle.annualPromo && (
         <div className="mb-8 rounded-xl border border-gold/40 bg-gold/10 p-5">
           <p className="text-sm font-bold text-gold leading-relaxed">
-            {bundle.annualPromo}
+            {bundle.annualPromo.split("~~12~~").map((part, index) => (
+              <span key={index}>
+                {index > 0 && <del>12</del>}
+                {part}
+              </span>
+            ))}
           </p>
+        </div>
+      )}
+
+      {bundle.setupPromoPrice && (
+        <div className="mb-8 rounded-xl border border-gold/40 bg-gold/10 p-5">
+          <p className="text-sm font-bold text-gold leading-relaxed">{locale === "en" ? "Black November: 50% off setup. Choose this offer or the annual offer; they cannot be combined." : "Black November: 50% de descuento en la implementación. Puedes elegir esta promo o la anual; no se combinan."}</p>
         </div>
       )}
 
@@ -164,7 +176,7 @@ function PlanCard({
       {bundle.features && bundle.features.length > 0 && (
         <div className="mb-8 flex flex-col gap-3">
           <span className="text-xs font-bold uppercase tracking-wider text-bone-45 mb-2">
-            Lo que incluye
+            {locale === "en" ? "What's included" : "Lo que incluye"}
           </span>
           <ul className="flex flex-col gap-2">
             {bundle.features.map((feature: string) => (

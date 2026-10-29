@@ -157,11 +157,11 @@ export const steps: StepsContent = {
   title: "Así de fácil es empezar",
   steps: [
     {
-      title: "Aplica en 2 minutos",
-      body: "Cuéntanos de tu negocio por el formulario o WhatsApp.",
+      title: "Agenda tu asesoría",
+      body: "Elige un horario en el calendario o escríbenos por WhatsApp.",
     },
     {
-      title: "Hablamos 15 minutos",
+      title: "Hablamos 30 minutos",
       body: "Te explicamos qué necesitas, qué no, y cuánto cuesta, sin letra pequeña.",
     },
     {
@@ -244,7 +244,7 @@ export const faq: FaqContent = {
     {
       question: "¿Cuánto cuesta una página web?",
       answer:
-        "Depende de lo que necesites. Tenemos desde landing pages hasta tiendas completas, todas con opción de financiamiento. En una llamada de 15 minutos te damos el precio exacto.",
+        "Depende de lo que necesites. Tenemos desde landing pages hasta tiendas completas, todas con opción de financiamiento. En una llamada de 30 minutos te damos el precio exacto.",
     },
     {
       question: "¿Cuánto se demora?",

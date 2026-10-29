@@ -78,12 +78,12 @@ export function CtaFinal({ content, locale }: CtaFinalProps) {
         {content.showPhoneMonument && (
           <div className="mt-20">
             <p className="type-eyebrow text-[0.72rem] text-bone-45" data-reveal>
-              O llámanos ahora mismo
+              {locale === "en" ? "Or call us now" : "O llámanos ahora mismo"}
             </p>
             <a
               href={site.phone.href}
               className="mt-5 block"
-              aria-label={`Llamar al ${site.phone.display}`}
+              aria-label={locale === "en" ? `Call ${site.phone.display}` : `Llamar al ${site.phone.display}`}
             >
               <NeonText
                 hue="gold"
@@ -95,7 +95,7 @@ export function CtaFinal({ content, locale }: CtaFinalProps) {
               </NeonText>
             </a>
             <p className="mt-6 text-bone-45" data-reveal>
-              {site.hours.summary}
+              {locale === "en" ? "Monday to Friday, 9:00 a.m. to 6:00 p.m." : site.hours.summary}
             </p>
           </div>
         )}

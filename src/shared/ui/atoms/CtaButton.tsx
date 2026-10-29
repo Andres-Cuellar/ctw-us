@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { Cta } from "@/content/types";
 import type { Locale } from "@/shared/config/site";
@@ -74,6 +76,14 @@ export function CtaButton({
     size === "lg" ? "px-8 py-4 text-base" : "px-6 py-3 text-sm",
     className,
   );
+
+  if (cta.kind === "apply" || cta.kind === "book") {
+    return (
+      <button type="button" className={classes} onClick={() => window.dispatchEvent(new Event("open-booking"))}>
+        {content}
+      </button>
+    );
+  }
 
   if (external) {
     return (

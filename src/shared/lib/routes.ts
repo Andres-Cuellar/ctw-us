@@ -20,6 +20,13 @@ export interface ResolvedCta {
   external: boolean;
 }
 
+export function whatsappHref(locale: Locale): string {
+  const message = locale === "en"
+    ? "Hi, I saw your website and would like to learn more about a system for my business."
+    : site.whatsapp.prefill;
+  return `https://wa.me/${site.phone.e164.replace("+", "")}?text=${encodeURIComponent(message)}`;
+}
+
 export function resolveCta(cta: Cta, locale: Locale = DEFAULT_LOCALE): ResolvedCta {
   switch (cta.kind) {
     case "apply":
@@ -35,7 +42,7 @@ export function resolveCta(cta: Cta, locale: Locale = DEFAULT_LOCALE): ResolvedC
         external: false,
       };
     case "whatsapp":
-      return { label: cta.label, href: site.whatsapp.href, external: true };
+      return { label: cta.label, href: whatsappHref(locale), external: true };
     case "call":
       return { label: cta.label, href: site.phone.href, external: false };
     case "email":

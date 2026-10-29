@@ -13,6 +13,8 @@ import * as enHome from "./en/home";
 import * as enServicios from "./en/servicios";
 import * as enContacto from "./en/contacto";
 import * as enNosotros from "./en/nosotros";
+import * as enDetailing from "./en/detailing";
+import * as enSalonSpa from "./en/salon-spa";
 
 export function getGlobalContent(locale: Locale = "es") {
   return locale === "en" ? enGlobal.globalContent : esGlobal.globalContent;
@@ -35,9 +37,9 @@ export function getNosotrosContent(locale: Locale = "es") {
 }
 
 export function getDetailingContent(locale: Locale = "es") {
-  return locale === "en" ? null : esDetailing;
+  return locale === "en" ? enDetailing : esDetailing;
 }
 
 export function getSalonSpaContent(locale: Locale = "es") {
-  return locale === "en" ? null : esSalonSpa;
+  return locale === "en" ? enSalonSpa : esSalonSpa;
 }

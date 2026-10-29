@@ -6,6 +6,7 @@ import "../globals.css";
 import { getGlobalContent } from "@/content";
 import { DEFAULT_LOCALE, LOCALES, isLocale, site, type Locale } from "@/shared/config/site";
 import { Footer } from "@/shared/layout/Footer";
+import { BookingDialog } from "@/shared/layout/BookingDialog";
 import { Header } from "@/shared/layout/Header";
 import { MobileBottomBar } from "@/shared/layout/MobileBottomBar";
 import { TopBar } from "@/shared/layout/TopBar";
@@ -102,6 +103,7 @@ export default async function LocaleLayout({
         <Footer locale={locale} />
         <WhatsAppFab locale={locale} />
         <MobileBottomBar locale={locale} />
+        <BookingDialog locale={locale} />
 
         <LocalBusinessSchema locale={locale} />
       </body>

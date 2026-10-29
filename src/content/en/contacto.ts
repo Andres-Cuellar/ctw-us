@@ -13,7 +13,7 @@ import { site } from "@/shared/config/site";
 export const contactoSeo: PageSeo = {
   title: "Contact & Free Consultation | creamostuweb Southwest",
   description:
-    "Message us on WhatsApp or book a free 15-minute consultation. Same-day response in English and Spanish.",
+    "Message us on WhatsApp or book a free 30-minute consultation on our calendar.",
 };
 
 export const hero: HeroContent = {
@@ -21,6 +21,7 @@ export const hero: HeroContent = {
   title: "Let's talk about your business",
   subtitle:
     "Message us, call us, or schedule a visit. We respond the same business day, in English or Spanish.",
+  primaryCta: { label: "Book a free consultation", kind: "book" },
 };
 
 export const form: FormContent = {

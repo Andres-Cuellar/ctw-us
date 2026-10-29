@@ -180,21 +180,36 @@ export function Header({ locale }: HeaderProps) {
           <button
             type="button"
             onClick={toggle}
+            aria-label={open ? nav.closeLabel : nav.menuLabel}
             aria-expanded={open}
             aria-controls="menu-movil"
-            className="btn btn-tube px-4 py-2.5 text-sm lg:hidden"
+            className="btn btn-tube inline-flex size-11 items-center justify-center p-0 lg:hidden"
           >
-            {open ? nav.closeLabel : nav.menuLabel}
+            <span className="relative size-5" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className={cn("absolute inset-0 size-5 transition-[opacity,transform] duration-200 motion-reduce:transition-none", open ? "rotate-90 opacity-0" : "rotate-0 opacity-100")}>
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className={cn("absolute inset-0 size-5 transition-[opacity,transform] duration-200 motion-reduce:transition-none", open ? "rotate-0 opacity-100" : "-rotate-90 opacity-0")}>
+                <path d="M5 5l14 14M19 5L5 19" />
+              </svg>
+            </span>
           </button>
         </div>
       </div>
 
       <div
         id="menu-movil"
-        hidden={!open}
-        className="border-t border-bone/10 bg-night lg:hidden"
+        inert={!open}
+        aria-hidden={!open}
+        className={cn(
+          "grid overflow-hidden bg-night transition-[grid-template-rows,opacity,transform] duration-300 ease-out motion-reduce:transition-none lg:hidden",
+          open
+            ? "grid-rows-[1fr] border-t border-bone/10 opacity-100 translate-y-0"
+            : "pointer-events-none grid-rows-[0fr] border-t border-transparent opacity-0 -translate-y-2",
+        )}
       >
-        <nav aria-label={locale === "en" ? "Mobile Navigation" : "Principal móvil"} className="px-5 py-5 sm:px-8">
+        <div className="min-h-0 overflow-hidden">
+        <nav aria-label={locale === "en" ? "Mobile Navigation" : "Principal móvil"} className="min-h-0 overflow-y-auto px-5 py-5 sm:px-8 max-h-[calc(100dvh-5rem)]">
           <div className="mb-4 flex items-center justify-between">
             <span className="text-xs uppercase tracking-widest text-bone-45 font-semibold">
               {locale === "en" ? "Language" : "Idioma"}
@@ -271,6 +286,7 @@ export function Header({ locale }: HeaderProps) {
               : "Te respondemos el mismo día hábil."}
           </p>
         </nav>
+        </div>
       </div>
     </header>
   );

@@ -14,7 +14,7 @@ interface CrudaRealidadProps {
   nicho: Nicho;
 }
 
-export function CrudaRealidad({ content, nicho }: CrudaRealidadProps) {
+export function CrudaRealidad({ content, locale, nicho }: CrudaRealidadProps) {
   const scope = useRef<HTMLElement>(null);
   useReveal(scope);
 
@@ -28,7 +28,7 @@ export function CrudaRealidad({ content, nicho }: CrudaRealidadProps) {
           <div className="flex items-center gap-3 mb-4">
             <span className="h-1 w-3 rounded-full bg-gold" />
             <Eyebrow hue={hue} data-reveal>
-              La cruda realidad
+              {locale === "en" ? "The real challenge" : "La cruda realidad"}
             </Eyebrow>
           </div>
           <SectionTitle size="lg" split={false} className="mt-2 leading-tight text-bone" data-reveal>
@@ -49,7 +49,7 @@ export function CrudaRealidad({ content, nicho }: CrudaRealidadProps) {
             <svg viewBox="0 0 16 16" className="size-4 stroke-current shrink-0" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
               <path d="M13.5 4.5l-7 7L3 8" />
             </svg>
-            <span>EL ATAQUE — La solución</span>
+            <span>{locale === "en" ? "THE SOLUTION" : "EL ATAQUE — La solución"}</span>
           </div>
           <p className="max-w-[55ch] text-lg leading-relaxed text-bone-70">
             {content.closer}
