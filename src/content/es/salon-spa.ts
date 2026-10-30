@@ -15,17 +15,21 @@ export const CITY_TOKEN_LOWER = "{{city_lower}}";
 
 export function salonSpaSeo(city: string, cityLower: string): PageSeo {
   return {
-    title: `Diseño Web y Sistema de Reservas para Spas y Salones en ${city} | creamostuweb`,
+    title: `Marketing y reservas para Spas y Salones en ${city} | creamostuweb`,
     description:
-      `Automatiza tu spa o peluquería en ${cityLower}. Páginas web, agenda 24/7, recordatorios de citas y marketing. Todo configurado y financiado.`,
+      `Consigue más citas para tu spa o salón en ${cityLower}. Web, CRM, reservas 24/7, depósitos, recordatorios y seguimiento con IA. Conoce los planes.`,
   };
 }
 
 export function salonSpaHero(city: string): HeroContent {
   return {
     eyebrow: `Tecnología y Adquisición para Spas y Salones en ${city}`,
-    title:
-      "Tu sistema cierra al próximo cliente mientras atiendes a quien ya está contigo.",
+    title: "Mientras atiendes a quien ya está contigo, tu sistema cierra al próximo cliente.",
+    sign: {
+      lead: "Mientras atiendes a quien ya está contigo,",
+      lit: "Nuestro sistema cierra tu próximo cliente.",
+      tail: "",
+    },
     subtitle:
       "Deja de perder dinero por no poder contestar el teléfono. Te instalamos la infraestructura completa —web, CRM y automatizaciones— para convertir mensajes perdidos en citas automáticamente.",
     primaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
@@ -33,10 +37,10 @@ export function salonSpaHero(city: string): HeroContent {
       label: "Hablar con un asesor",
       kind: "whatsapp",
     },
+    trustLine: ["Reservas por especialista", "Agenda disponible 24/7", "Depósitos y recordatorios"],
     offer: {
-      title: "OFERTA EXCLUSIVA ANUAL",
-      body:
-        "Paga 6 meses de licencia por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
+      title: "OFERTA DE NOVIEMBRE",
+      body: "50% de descuento en la implementación de cualquier plan. Elige esta promoción o la oferta anual; (No se pueden combinar)s.",
     },
   };
 }

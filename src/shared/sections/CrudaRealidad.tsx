@@ -22,38 +22,33 @@ export function CrudaRealidad({ content, locale, nicho }: CrudaRealidadProps) {
 
   return (
     <section ref={scope} className="relative isolate overflow-hidden bg-night">
-      <div className="mx-auto w-full max-w-[1280px] px-5 pt-20 pb-24 sm:px-8 md:pt-24 md:pb-28 lg:px-12">
-        {/* Eyebrow + Title */}
-        <div className="max-w-[60ch] mb-16" data-reveal>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-1 w-3 rounded-full bg-gold" />
+      <div className="mx-auto w-full max-w-[1280px] px-5 py-20 sm:px-8 md:py-28 lg:px-12">
+        <div className="mb-12 max-w-[760px] text-left" data-reveal>
+          <div className="mb-5 flex justify-start">
             <Eyebrow hue={hue} data-reveal>
               {locale === "en" ? "The real challenge" : "La cruda realidad"}
             </Eyebrow>
           </div>
-          <SectionTitle size="lg" split={false} className="mt-2 leading-tight text-bone" data-reveal>
+          <SectionTitle size="lg" split={false} className="max-w-[24ch] leading-tight text-bone" data-reveal>
             {content.title}
           </SectionTitle>
         </div>
 
-        {/* Pains: three ❌ cards */}
-        <div className="grid gap-8 md:grid-cols-3" data-reveal>
+        <div className="grid gap-4 md:grid-cols-12 md:gap-5" data-reveal>
           {content.pains.map((pain, i) => (
-            <PainCard key={i} text={pain} hue={hue} />
+            <PainCard key={i} text={pain} hue={hue} index={i} />
           ))}
-        </div>
-
-        {/* Solution closer */}
-        <div className="mt-20 flex flex-col items-center gap-6 rounded-2xl border border-gold/30 bg-gold/5 p-8 md:p-12 text-center" data-reveal>
-          <div className="inline-flex items-center gap-2 text-gold font-bold text-xs tracking-widest uppercase">
-            <svg viewBox="0 0 16 16" className="size-4 stroke-current shrink-0" fill="none" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M13.5 4.5l-7 7L3 8" />
-            </svg>
-            <span>{locale === "en" ? "THE SOLUTION" : "EL ATAQUE — La solución"}</span>
+          <div className={`flex min-h-[245px] flex-col rounded-2xl border p-6 sm:p-8 md:col-span-7 md:p-9 ${hue === "gold" ? "border-gold/45 bg-gradient-to-br from-gold/15 via-night-2 to-night-2" : "border-wine/55 bg-gradient-to-br from-wine/20 via-night-2 to-night-2"}`} data-reveal>
+            <span className={`mb-7 grid size-12 place-items-center rounded-xl border ${hue === "gold" ? "border-gold/40 bg-gold/15 text-gold" : "border-wine/50 bg-wine/25 text-wine-light"}`}>
+              <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+            </span>
+            <h3 className="text-xl font-semibold leading-snug text-bone sm:text-2xl">
+              {locale === "en" ? "The solution" : "EL ATAQUE — La solución"}
+            </h3>
+            <p className="mt-4 max-w-[62ch] text-sm leading-relaxed text-bone-70 sm:text-base">
+              {content.closer.replace(/^(EL ATAQUE \(La solución\)|The solution):\s*/, "")}
+            </p>
           </div>
-          <p className="max-w-[55ch] text-lg leading-relaxed text-bone-70">
-            {content.closer}
-          </p>
         </div>
       </div>
     </section>
@@ -69,32 +64,30 @@ function splitPain(text: string): { title: string; body: string } {
 function PainCard({
   text,
   hue,
+  index,
 }: {
   text: string;
   hue: "gold" | "wine" | "cyan" | "pink";
+  index: number;
 }) {
-  const accent =
-    hue === "gold"
-      ? "border-gold/30 hover:border-gold/60"
-      : "border-wine/40 hover:border-wine/70";
   const { title, body } = splitPain(text);
 
   return (
     <div
-      className={`group flex h-full flex-col rounded-2xl border bg-night-2/70 p-7 md:p-8 transition-colors ${accent}`}
+      className={`group flex min-h-[245px] flex-col rounded-2xl border border-bone/12 bg-night-2/75 p-6 transition-[border-color,transform] hover:-translate-y-1 sm:p-8 md:p-9 ${index === 0 ? "md:col-span-7" : "md:col-span-5"} ${hue === "gold" ? "hover:border-gold/50" : "hover:border-wine/60"}`}
       data-reveal
     >
-      <div className="flex items-start gap-3 mb-3">
-        <span className="grid size-6 shrink-0 place-items-center rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-400 mt-0.5">
-          <svg viewBox="0 0 16 16" className="size-3 stroke-current" fill="none" strokeWidth={2.2} strokeLinecap="round">
-            <path d="M4 4l8 8m0-8l-8 8" />
-          </svg>
-        </span>
-        <h3 className="text-bone text-lg font-semibold leading-snug">
-          {title}
-        </h3>
-      </div>
-      {body && <p className="text-bone-70 leading-relaxed">{body}</p>}
+      <span className="mb-7 grid size-12 place-items-center rounded-xl border border-rose-400/25 bg-rose-400/10 text-rose-300">
+        <PainIcon index={index} />
+      </span>
+      <h3 className="text-lg font-semibold leading-snug text-bone sm:text-xl">{title}</h3>
+      {body && <p className="mt-3 max-w-[55ch] text-sm leading-relaxed text-bone-70 sm:text-base">{body}</p>}
     </div>
   );
+}
+
+function PainIcon({ index }: { index: number }) {
+  if (index === 0) return <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2c0 8.8 7.2 16 16 16a2 2 0 0 0 2-2v-3l-5-2-2 2a14 14 0 0 1-6-6l2-2-2-5Z"/><path d="m15 3 6 6m0-6-6 6"/></svg>;
+  if (index === 1) return <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17h5l4-4 3 2 6-8"/><path d="M16 7h5v5"/><path d="M3 21h18"/></svg>;
+  return <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18m-12 4 6 5m0-5-6 5"/></svg>;
 }

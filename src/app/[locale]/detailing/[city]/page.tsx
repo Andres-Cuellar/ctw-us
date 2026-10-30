@@ -10,7 +10,7 @@ import { ReviewsNicho } from "@/shared/sections/ReviewsNicho";
 import { FaqNicho } from "@/shared/sections/FaqNicho";
 import { AreasServicio } from "@/shared/sections/AreasServicio";
 import { CtaFinal } from "@/shared/sections/CtaFinal";
-import { isLocale } from "@/shared/config/site";
+import { isLocale, site } from "@/shared/config/site";
 import {
   NICHO_CITIES,
   cityBySlug,
@@ -41,8 +41,8 @@ export async function generateMetadata({
   return {
     title: { absolute: seo.title },
     description: seo.description,
-    openGraph: { title: seo.title, description: seo.description },
-    alternates: { canonical: withLocale(locale, nichoPath("detailing", ciudad)) },
+    openGraph: { title: seo.title, description: seo.description, url: `${site.url}${withLocale(locale, nichoPath("detailing", ciudad))}`, locale: locale === "en" ? "en_US" : "es_US", type: "website" },
+    alternates: { canonical: withLocale(locale, nichoPath("detailing", ciudad)), languages: { es: withLocale("es", nichoPath("detailing", ciudad)), en: withLocale("en", nichoPath("detailing", ciudad)) } },
   };
 }
 
@@ -71,6 +71,15 @@ export default async function CityDetailingPage({
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: locale === "en" ? "Website, CRM and booking automation for auto detailing" : "Página web, CRM y automatización de citas para auto detailing",
+        description: content.detailingSeo(cityName, cityLower).description,
+        serviceType: locale === "en" ? "Marketing and booking automation for auto detailing businesses" : "Marketing y automatización de reservas para negocios de auto detailing",
+        provider: { "@type": "Organization", name: site.name, url: site.url },
+        areaServed: { "@type": "City", name: cityName, address: { "@type": "PostalAddress", addressRegion: ciudad.state, addressCountry: "US" } },
+      }) }} />
       <HeroNicho content={hero} locale={locale} nicho="detailing" />
       <CrudaRealidad content={problem} locale={locale} nicho="detailing" />
       <SistemaNicho content={system} nicho="detailing" />

@@ -94,13 +94,12 @@ function PlanCard({
       {/* Badge + name */}
       <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
         <span
-          className={`type-eyebrow inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.68rem] uppercase tracking-wider font-bold ${
-            isRecommended
+          className={`type-eyebrow inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.68rem] uppercase tracking-wider font-bold ${isRecommended
               ? "border border-gold bg-gold/20 text-gold shadow-[0_0_12px_rgba(236,152,15,0.35)]"
               : isPremium
                 ? "border border-wine bg-wine/25 text-bone"
                 : "border border-cyan/40 bg-cyan/10 text-cyan"
-          }`}
+            }`}
         >
           <span
             aria-hidden
@@ -168,7 +167,7 @@ function PlanCard({
 
       {bundle.setupPromoPrice && (
         <div className="mb-8 rounded-xl border border-gold/40 bg-gold/10 p-5">
-          <p className="text-sm font-bold text-gold leading-relaxed">{locale === "en" ? "Black November: 50% off setup. Choose this offer or the annual offer; they cannot be combined." : "Black November: 50% de descuento en la implementación. Puedes elegir esta promo o la anual; no se combinan."}</p>
+          <p className="text-sm font-bold text-gold leading-relaxed">{locale === "en" ? "Black November: 50% off setup. Choose this offer or the annual offer; they cannot be combined." : "Black November: 50% de descuento en la implementación. Puedes elegir esta promo o la anual; (No se pueden combinar)."}</p>
         </div>
       )}
 

@@ -15,17 +15,21 @@ export const CITY_TOKEN_LOWER = "{{city_lower}}";
 
 export function detailingSeo(city: string, cityLower: string): PageSeo {
   return {
-    title: `Diseño Web y CRM para Auto Detailing en ${city} | creamostuweb`,
+    title: `Marketing y reservas para Auto Detailing en ${city} | creamostuweb`,
     description:
-      `Atrae más clientes de detailing en ${cityLower}. Páginas web, agenda en línea y respuestas automáticas. Sin pagos iniciales grandes. Aplica hoy.`,
+      `Consigue más citas para tu negocio de auto detailing en ${cityLower}. Web, CRM, respuesta a llamadas perdidas, reservas 24/7 e IA. Conoce los planes.`,
   };
 }
 
 export function detailingHero(city: string): HeroContent {
   return {
     eyebrow: `Más clientes para tu negocio de detailing en ${city}`,
-    title:
-      "Mientras trabajas en un auto, tu sistema cierra al próximo cliente.",
+    title: "Mientras trabajas en un auto, nuestro sistema cierra tu próximo cliente.",
+    sign: {
+      lead: "Mientras trabajas en un auto,",
+      lit: "Nuestro sistema cierra tu próximo cliente.",
+      tail: "",
+    },
     subtitle:
       "Deja de perder dinero por no poder contestar el teléfono. Te instalamos la infraestructura completa —web, CRM y automatizaciones— para convertir mensajes perdidos en citas automáticamente.",
     primaryCta: { label: "Agendar asesoría gratuita", kind: "book" },
@@ -33,10 +37,10 @@ export function detailingHero(city: string): HeroContent {
       label: "Hablar con un asesor",
       kind: "whatsapp",
     },
+    trustLine: ["Respuesta a llamadas perdidas", "Agenda disponible 24/7", "Depósitos y recordatorios"],
     offer: {
-      title: "OFERTA EXCLUSIVA ANUAL",
-      body:
-        "Paga 6 meses de servicio por adelantado y te regalamos el 100% del costo de implementación. Ahórrate hasta $6,999 USD en setup.",
+      title: "OFERTA DE NOVIEMBRE",
+      body: "50% de descuento en la implementación de cualquier plan. Elige esta promoción o la oferta anual; (No se pueden combinar).",
     },
   };
 }

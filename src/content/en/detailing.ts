@@ -11,21 +11,27 @@ import type {
 
 export function detailingSeo(city: string, cityLower: string): PageSeo {
   return {
-    title: `Web Design and CRM for Auto Detailing in ${city} | creamostuweb`,
-    description: `Get more detailing customers in ${cityLower} with a website, online booking, and automatic replies. Explore a system built for your business.`,
+    title: `Auto Detailing Marketing & Booking in ${city} | creamostuweb`,
+    description: `Book more auto detailing jobs in ${cityLower} with a website, CRM, missed-call text back, 24/7 scheduling, and AI. Compare plans for your shop.`,
   };
 }
 
 export function detailingHero(city: string): HeroContent {
   return {
     eyebrow: `More customers for your detailing business in ${city}`,
-    title: "Your system books the next customer while you work on a car.",
+    title: "While you work on a car, our system books your next customer.",
+    sign: {
+      lead: "While you work on a car,",
+      lit: "Our system books your next customer.",
+      tail: "",
+    },
     subtitle: "Stop losing revenue when you can't answer the phone. We set up your website, CRM, and automations to turn missed calls and messages into appointments.",
     primaryCta: { label: "Book a free consultation", kind: "book" },
     secondaryCta: { label: "Talk to an advisor", kind: "whatsapp" },
+    trustLine: ["Missed-call text back", "24/7 online booking", "Deposits and reminders"],
     offer: {
-      title: "EXCLUSIVE ANNUAL OFFER",
-      body: "Pay for 6 months of service up front and get your implementation fee waived. Save up to $6,999 USD in setup costs.",
+      title: "NOVEMBER OFFER",
+      body: "Get 50% off the setup fee on any plan. Choose this promotion or the annual offer; they cannot be combined.",
     },
   };
 }

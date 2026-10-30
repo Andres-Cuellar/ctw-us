@@ -11,21 +11,27 @@ import type {
 
 export function salonSpaSeo(city: string, cityLower: string): PageSeo {
   return {
-    title: `Web Design and Booking for Salons and Spas in ${city} | creamostuweb`,
-    description: `Help your salon or spa in ${cityLower} capture more appointments with a website, 24/7 booking, reminders, and marketing automation.`,
+    title: `Salon & Spa Marketing and Booking in ${city} | creamostuweb`,
+    description: `Book more salon and spa clients in ${cityLower} with a website, CRM, 24/7 scheduling, deposits, reminders, and AI follow-up. Compare plans.`,
   };
 }
 
 export function salonSpaHero(city: string): HeroContent {
   return {
     eyebrow: `Client acquisition and automation for salons and spas in ${city}`,
-    title: "Your system books the next client while you care for the one in front of you.",
+    title: "While you care for the client in front of you, your system books the next one.",
+    sign: {
+      lead: "While you care for the client in front of you,",
+      lit: "Your system books the next one.",
+      tail: "",
+    },
     subtitle: "Stop losing revenue when you can't answer the phone. We set up your website, CRM, and automations to turn missed calls and messages into appointments.",
     primaryCta: { label: "Book a free consultation", kind: "book" },
     secondaryCta: { label: "Talk to an advisor", kind: "whatsapp" },
+    trustLine: ["Booking by specialist", "24/7 online booking", "Deposits and reminders"],
     offer: {
-      title: "EXCLUSIVE ANNUAL OFFER",
-      body: "Pay for 6 months of service up front and get your implementation fee waived. Save up to $6,999 USD in setup costs.",
+      title: "NOVEMBER OFFER",
+      body: "Get 50% off the setup fee on any plan. Choose this promotion or the annual offer; they cannot be combined.",
     },
   };
 }

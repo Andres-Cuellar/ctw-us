@@ -10,7 +10,7 @@ import { ReviewsNicho } from "@/shared/sections/ReviewsNicho";
 import { FaqNicho } from "@/shared/sections/FaqNicho";
 import { AreasServicio } from "@/shared/sections/AreasServicio";
 import { CtaFinal } from "@/shared/sections/CtaFinal";
-import { isLocale } from "@/shared/config/site";
+import { isLocale, site } from "@/shared/config/site";
 import {
   NICHO_CITIES,
   cityBySlug,
@@ -41,8 +41,8 @@ export async function generateMetadata({
   return {
     title: { absolute: seo.title },
     description: seo.description,
-    openGraph: { title: seo.title, description: seo.description },
-    alternates: { canonical: withLocale(locale, nichoPath("salon-spa", ciudad)) },
+    openGraph: { title: seo.title, description: seo.description, url: `${site.url}${withLocale(locale, nichoPath("salon-spa", ciudad))}`, locale: locale === "en" ? "en_US" : "es_US", type: "website" },
+    alternates: { canonical: withLocale(locale, nichoPath("salon-spa", ciudad)), languages: { es: withLocale("es", nichoPath("salon-spa", ciudad)), en: withLocale("en", nichoPath("salon-spa", ciudad)) } },
   };
 }
 
@@ -71,6 +71,15 @@ export default async function CitySalonSpaPage({
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: locale === "en" ? "Website, CRM and booking automation for salons and spas" : "Página web, CRM y automatización de reservas para salones y spas",
+        description: content.salonSpaSeo(cityName, cityLower).description,
+        serviceType: locale === "en" ? "Marketing and booking automation for salons and spas" : "Marketing y automatización de reservas para salones y spas",
+        provider: { "@type": "Organization", name: site.name, url: site.url },
+        areaServed: { "@type": "City", name: cityName, address: { "@type": "PostalAddress", addressRegion: ciudad.state, addressCountry: "US" } },
+      }) }} />
       <HeroNicho content={hero} locale={locale} nicho="salon-spa" />
       <CrudaRealidad content={problem} locale={locale} nicho="salon-spa" />
       <SistemaNicho content={system} nicho="salon-spa" />
