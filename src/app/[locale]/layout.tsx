@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Sora } from "next/font/google";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import "../globals.css";
 
 import { getGlobalContent } from "@/content";
+import { MetaPixel } from "@/shared/analytics/MetaPixel";
 import { DEFAULT_LOCALE, LOCALES, isLocale, site, type Locale } from "@/shared/config/site";
 import { Footer } from "@/shared/layout/Footer";
 import { BookingDialog } from "@/shared/layout/BookingDialog";
@@ -104,6 +106,16 @@ export default async function LocaleLayout({
             title="Google Tag Manager"
           />
         </noscript>
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=4416393341916446&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
         <a
           href="#contenido"
           className="type-label sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-gold focus:px-5 focus:py-2.5 focus:text-night"
@@ -118,6 +130,9 @@ export default async function LocaleLayout({
         <WhatsAppFab locale={locale} />
         <MobileBottomBar locale={locale} />
         <BookingDialog locale={locale} />
+        <Suspense fallback={null}>
+          <MetaPixel />
+        </Suspense>
 
         <LocalBusinessSchema locale={locale} />
         <Script id="google-tag-manager" strategy="afterInteractive">
