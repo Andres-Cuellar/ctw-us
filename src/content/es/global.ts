@@ -75,8 +75,8 @@ export const globalContent: GlobalContent = {
           // PH-08 / PH-07: destinations pending. Rendered as pending, not as dead links.
           { label: "Portal de clientes", href: "" },
           { label: "Hacer un pago", href: "" },
-          { label: "Política de privacidad", href: "" },
-          { label: "Términos y condiciones", href: "" },
+          { label: "Política de privacidad", href: "/politica-de-privacidad" },
+          { label: "Términos y condiciones", href: "/terminos-y-condiciones" },
         ],
       },
     ],
