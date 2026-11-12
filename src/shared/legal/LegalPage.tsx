@@ -76,7 +76,7 @@ export function LegalPage({ locale, document }: { locale: Locale; document: Lega
             <h2 id="contact-title" className="text-2xl font-semibold">{isSpanish ? "Contacto" : "Contact"}</h2>
             <address className="mt-4 space-y-2 text-bone-70 not-italic">
               <p className="font-semibold text-bone">{site.name}</p>
-              <p>{site.address.street}, {site.address.city}, {site.address.region}, {isSpanish ? "Estados Unidos" : "United States"}</p>
+              <p>{site.address.oneLine}, {isSpanish ? "Estados Unidos" : "United States"}</p>
               <p><a href={site.email.href} className="break-all text-gold underline underline-offset-4">{site.email.address}</a></p>
               <p><a href={site.phone.href} className="hover:text-gold">{site.phone.display}</a></p>
             </address>

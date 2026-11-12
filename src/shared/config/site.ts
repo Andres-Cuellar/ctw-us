@@ -19,6 +19,18 @@ const EMAIL_DOMAIN = "creamostuweb.co";
 const WHATSAPP_PREFILL =
   "Hola, vi su página y quiero información sobre una página web para mi negocio.";
 
+const ADDRESS = {
+  street: "7335 Blair Barry Ct",
+  unit: "Unit A",
+  city: "Las Vegas",
+  region: "NV",
+  postalCode: "89113",
+  country: "US",
+} as const;
+
+const ADDRESS_LINE = `${ADDRESS.street}, ${ADDRESS.unit}`;
+const ADDRESS_ONE_LINE = `${ADDRESS_LINE}, ${ADDRESS.city}, ${ADDRESS.region} ${ADDRESS.postalCode}`;
+
 export const LOCALES = ["es", "en"] as const;
 export const DEFAULT_LOCALE = "es";
 export type Locale = (typeof LOCALES)[number];
@@ -58,17 +70,21 @@ export const site = {
   },
 
   address: {
-    street: "103 Red Tee Ln",
-    city: "Las Vegas",
-    region: "NV",
-    /** Not supplied by the client. Needed for LocalBusiness JSON-LD. */
-    postalCode: null,
-    country: "US",
+    ...ADDRESS,
+    /** Street line as it should read on a page. */
+    line: ADDRESS_LINE,
+    /** Full address on a single line. */
+    oneLine: ADDRESS_ONE_LINE,
     note: "Solo con cita previa",
     /** Resolves without a hardcoded place ID or API key. */
     directionsHref:
       "https://www.google.com/maps/dir/?api=1&destination=" +
-      encodeURIComponent("103 Red Tee Ln, Las Vegas, NV"),
+      encodeURIComponent(ADDRESS_ONE_LINE),
+    /** Keyless Google Maps embed of the same address. */
+    embedHref:
+      "https://maps.google.com/maps?q=" +
+      encodeURIComponent(ADDRESS_ONE_LINE) +
+      "&z=16&output=embed",
   },
 
   hours: {

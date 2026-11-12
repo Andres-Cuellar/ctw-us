@@ -37,7 +37,7 @@ export default async function ContactoPage({ params }: PageProps) {
     <>
       <PageHero content={hero} locale={locale} hue="cyan" />
       <Canales content={channels} locale={locale} />
-      <Horario hours={hours} map={map} />
+      <Horario hours={hours} map={map} locale={locale} />
       <Preguntas content={faq} id="preguntas-rapidas" surface="raised" glow="cyan" />
     </>
   );

@@ -64,9 +64,7 @@ export function Footer({ locale }: FooterProps) {
               {footer.contactHeading}
             </h2>
             <address className="mt-5 flex flex-col gap-2.5 text-sm not-italic text-bone-70">
-              <span>
-                {site.address.street}, {site.address.city}, {site.address.region}
-              </span>
+              <span>{site.address.oneLine}</span>
               <a className="hover:text-gold transition-colors" href={site.phone.href} data-numeric>
                 {site.phone.display}
               </a>

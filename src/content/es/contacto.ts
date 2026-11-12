@@ -153,7 +153,7 @@ export const channels: ChannelsContent = {
     {
       kind: "office",
       label: "Oficina",
-      value: `${site.address.street}, ${site.address.city}, ${site.address.region}`,
+      value: site.address.oneLine,
       body: "Solo con cita previa.",
       cta: { label: "Cómo llegar", kind: "directions" },
     },
@@ -180,8 +180,10 @@ export const hours: HoursContent = {
 export const map: MapContent = {
   title: "Dónde estamos",
   body: "Atendemos negocios en todo el Suroeste (Nevada, Arizona, Utah, California y más).",
-  /** PH-05: Google Map embed pending. */
-  pendingNote: "Mapa en camino.",
+  address: site.address.oneLine,
+  note: "Solo con cita previa",
+  cta: { label: "Cómo llegar", kind: "directions" },
+  embedTitle: "Mapa con la ubicación de nuestra oficina en Las Vegas",
 };
 
 export const faq: FaqContent = {

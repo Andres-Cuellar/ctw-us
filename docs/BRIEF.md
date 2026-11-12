@@ -295,7 +295,7 @@ fabricated social proof.
 | PH-02 | Nosotros stats: businesses served, sites delivered, years of experience | Real numbers only |
 | PH-03 | Social handle for Instagram / Facebook / TikTok | Client |
 | PH-04 | Booking calendar embed on Contacto | Calendar tool choice |
-| PH-05 | Google Map embed on Contacto | Maps API key / embed URL |
+| PH-05 | ~~Google Map embed on Contacto~~ | ✅ Keyless `maps.google.com` embed from `site.address.embedHref` |
 | PH-06 | Payment-method logos | Brand assets (Visa, MC, Amex, Apple Pay, Google Pay, Zelle, Cash App, Affirm, Klarna) |
 | PH-07 | Privacy policy and Terms pages | Legal review — see LEGAL below |
 | PH-08 | Client portal / "Hacer un pago" destinations | URLs |
@@ -383,7 +383,7 @@ All of them live in `src/content/es/*`.
 | `nosotros.ts` → `stats.title`, `stats.pendingNote` | "En números" + holding text for PH-02 |
 | `contacto.ts` → `channels.title` | "Otras formas de encontrarnos" |
 | `contacto.ts` → `map.title` | "Dónde estamos" |
-| `contacto.ts` → `booking.pendingNote`, `map.pendingNote` | Holding text for PH-04 / PH-05 |
+| `contacto.ts` → `booking.pendingNote` | Holding text for PH-04 |
 | `contacto.ts` → `form.submittingLabel`, `form.errorMessage` | "Enviando…" and the failure message that redirects to WhatsApp |
 | `CtaFinal.tsx` | "O llámanos ahora mismo" — label above the phone monument |
 | `Formulario.tsx` | The paragraph beside the form and "O escríbenos por WhatsApp" |

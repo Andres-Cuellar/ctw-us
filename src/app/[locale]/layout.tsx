@@ -168,9 +168,10 @@ function LocalBusinessSchema({ locale }: { locale: Locale }) {
     email: site.email.address,
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.address.street,
+      streetAddress: site.address.line,
       addressLocality: site.address.city,
       addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
     areaServed: site.serviceArea.map((name) => ({ "@type": "City", name })),

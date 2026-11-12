@@ -401,7 +401,13 @@ export interface HoursContent {
 export interface MapContent {
   title: string;
   body: string;
-  pendingNote: string;
+  /** Full street address, shown in the location panel. */
+  address: string;
+  /** Appointment or access note under the address. */
+  note: string;
+  cta: Cta;
+  /** Accessible name for the map embed. */
+  embedTitle: string;
 }
 
 /* -------------------------------------------------------------------------- */

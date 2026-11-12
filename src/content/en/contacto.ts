@@ -149,7 +149,7 @@ export const channels: ChannelsContent = {
     {
       kind: "office",
       label: "Office",
-      value: `${site.address.street}, ${site.address.city}, ${site.address.region}`,
+      value: site.address.oneLine,
       body: "By appointment only.",
       cta: { label: "Get directions", kind: "directions" },
     },
@@ -175,7 +175,10 @@ export const hours: HoursContent = {
 export const map: MapContent = {
   title: "Where we are located",
   body: "Serving businesses throughout the Southwest (Nevada, Arizona, Utah, California and beyond).",
-  pendingNote: "Map view coming soon.",
+  address: site.address.oneLine,
+  note: "By appointment only",
+  cta: { label: "Get directions", kind: "directions" },
+  embedTitle: "Map of our Las Vegas office location",
 };
 
 export const faq: FaqContent = {
