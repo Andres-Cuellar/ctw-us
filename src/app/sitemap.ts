@@ -5,8 +5,14 @@ import { legalPaths } from "@/content/legal";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ["", "/servicios", "/nosotros", "/contacto", "/detailing", "/salon-spa", ...Object.values(legalPaths), ...NICHO_CITIES.flatMap((city) => [`/detailing/${city.slug}`, `/salon-spa/${city.slug}`])];
-  return paths.flatMap((path) => (["es", "en"] as const).map((locale) => ({
+  const localized = paths.flatMap((path) => (["es", "en"] as const).map((locale) => ({
     url: `${site.url}/${locale}${path}`,
     alternates: { languages: { es: `${site.url}/es${path}`, en: `${site.url}/en${path}` } },
   })));
+  // Spanish-only landing: /en/nuevos-clientes redirects, so it is not listed.
+  const spanishOnly = ["/nuevos-clientes"].map((path) => ({
+    url: `${site.url}/es${path}`,
+    alternates: { languages: { es: `${site.url}/es${path}`, "x-default": `${site.url}/es${path}` } },
+  }));
+  return [...localized, ...spanishOnly];
 }
