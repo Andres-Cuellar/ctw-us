@@ -20,13 +20,12 @@ export const serviciosSeo: PageSeo = {
 
 export const hero: HeroContent = {
   eyebrow: "Services",
-  title: "Everything your business needs to grow online",
-  subtitle:
-    "Websites, online stores, and systems to serve and convert more clients. Choose what you need today and scale when you're ready.",
+  title: "Capture inquiries and follow up from one place.",
+  subtitle: "We build your website, connect your forms and booking calendar, and set up the automatic replies in your plan.",
+  primaryCta: { label: "Compare plans", kind: "anchor", href: "#paquetes" },
   anchors: [
     { label: "Websites", kind: "anchor", href: "#paginas-web" },
     { label: "Tools & CRM", kind: "anchor", href: "#herramientas" },
-    { label: "⭐ All-in-One Service", kind: "anchor", href: "#paquetes" },
     { label: "Online Stores", kind: "anchor", href: "#tiendas" },
   ],
 };
@@ -149,22 +148,38 @@ export const tools: ToolsContent = {
 };
 
 export const bundles: BundlesContent = {
-  title: "Complete commercial systems to scale your business",
-  subtitle:
-    "Presented across three commercial maturity levels: don't just buy isolated web pages or software, build the infrastructure your stage requires.",
-  positioningIntro:
-    "Structure your lead generation, automate your follow-ups, or dominate your market with artificial intelligence.",
+  title: "Choose what you need to solve first",
+  subtitle: "Start with a website and CRM to organize inquiries. Add ad campaigns and automation as you expand your outreach.",
+  onboarding: {
+    title: "How we get started",
+    steps: [
+      { title: "Discovery", body: "We review your business, channels, and how you handle inquiries." },
+      { title: "Scope", body: "We agree on deliverables, responsibilities, budget, and terms." },
+      { title: "Implementation", body: "We build your website and connect the tools in your plan." },
+      { title: "Testing and training", body: "We test the workflows and show your team how to use the system." },
+      { title: "Monthly service", body: "We maintain and manage what your plan includes." },
+    ],
+  },
   bundles: [
     {
       id: "growth-engine",
       name: "Growth Engine",
-      tagline: "Digital infrastructure & client management",
+      tagline: "Organize inquiries and bookings",
       tier: "Starter",
       targetAudience:
         "For businesses that need a professional online presence, centralized contacts, and to stop losing leads.",
       setupPrice: "$1,999 USD",
       monthlyPrice: "$497 USD",
       monthlyCadence: "/mo",
+      summary: {
+        features: [
+          "Website with up to 5 pages and inquiry forms",
+          "CRM with a shared inbox for compatible channels",
+          "Online booking and missed-call texts where your phone setup supports them",
+        ],
+        monthly: "We monitor the system, maintain its configuration, and handle platform issues.",
+        usage: "Phone, SMS, and third-party services are billed based on usage.",
+      },
       phases: [
         {
           title: "PHASE 1. Digital Presence",
@@ -197,22 +212,29 @@ export const bundles: BundlesContent = {
       },
       consumptionNote:
         "Telephony, SMS, third-party services, and usage charges are billed by consumption. Not included in base monthly fee.",
-      idealFor:
-        "Businesses that need organization, professional presence, and a structured lead intake process.",
-      cta: { label: "Get started with Growth Engine", kind: "apply" },
+      cta: { label: "Organize my business", kind: "apply" },
     },
     {
       id: "sales-autopilot",
       name: "Sales Autopilot",
-      tagline: "Sales Automation,\nConversion & Meta Ads",
-      badge: "Recommended",
-      tier: "Recommended",
+      tagline: "Generate inquiries and follow up",
+      tier: "Lead generation and follow-up",
       targetAudience:
         "For businesses looking to generate qualified social media leads consistently, follow up automatically, and close more deals without missed appointments.",
       setupPrice: "$3,499 USD",
       monthlyPrice: "$1,697 USD",
       monthlyCadence: "/mo",
       inheritsFrom: "Includes everything in Growth Engine, plus:",
+      summary: {
+        features: [
+          "Website with up to 10 pages",
+          "Email and text follow-up with appointment reminders",
+          "Facebook and Instagram campaign management",
+        ],
+        monthly: "We optimize ads weekly, monitor automations, and review the funnel and cost per lead each month.",
+        usage: "Phone, SMS, and third-party integrations are billed based on usage.",
+        adBreakdown: "$1,297 for service + $400 for Meta ads",
+      },
       phases: [
         {
           title: "PHASE 1. Advanced Digital Presence",
@@ -255,15 +277,12 @@ export const bundles: BundlesContent = {
       },
       consumptionNote:
         "Includes $400 USD/month of managed ad spend in Meta Ads. If you want to scale faster with additional ad budget, you only pay extra ad spend at direct cost. Telephony, carrier SMS, and third-party tools are billed based on usage.",
-      idealFor:
-        "Service contractors, clinics, agencies, and local businesses that want to acquire leads through paid ads and convert them via automated follow-up.",
-      cta: { label: "Choose Sales Autopilot", kind: "apply" },
+      cta: { label: "Improve lead generation", kind: "apply" },
     },
     {
       id: "market-leader",
       name: "Market Leader",
-      tagline: "Artificial Intelligence, Automation & Omnichannel Ads (Meta + Google)",
-      badge: "Premium",
+      tagline: "Reach customers on Google and Meta and automate first responses",
       tier: "Premium",
       targetAudience:
         "For companies seeking market dominance: proactive acquisition via Google & Meta Ads, backed by immediate 24/7 intelligent AI response.",
@@ -271,6 +290,16 @@ export const bundles: BundlesContent = {
       monthlyPrice: "$2,797 USD",
       monthlyCadence: "/mo",
       inheritsFrom: "Includes everything in Sales Autopilot, plus:",
+      summary: {
+        features: [
+          "Website with up to 20 pages",
+          "Google and Meta campaign management",
+          "AI agent for inquiries, initial qualification, and bookings",
+        ],
+        monthly: "We monitor campaigns, workflows, and AI. We review results monthly and provide priority support and up to 4 hours of adjustments and optimization per month.",
+        usage: "Voice calls and AI are billed at provider rates. See full scope for included texts.",
+        adBreakdown: "$1,997 for service + $800 for Google and Meta ads",
+      },
       phases: [
         {
           title: "PHASE 1. Premium Digital Presence",
@@ -313,9 +342,7 @@ export const bundles: BundlesContent = {
       ],
       consumptionNote:
         "Includes $800 USD/month in managed Google & Meta ad spend, plus 10,000 SMS segments for eligible US destinations. Additional ad spend is billed at transparent platform pass-through rates. AI voice minutes per provider rates.",
-      idealFor:
-        "High-volume companies requiring proactive omnichannel customer acquisition and 24/7 automated qualification without expanding headcount.",
-      cta: { label: "Scale with Market Leader", kind: "apply" },
+      cta: { label: "Review my sales system", kind: "apply" },
     },
   ],
   conditionsTitle: "Commercial Terms Applicable to All Plans",
@@ -355,10 +382,10 @@ export const bundles: BundlesContent = {
 
 export const billing: BillingContent = {
   title: "Clear, transparent investment structure",
-  columns: { item: "Commercial Maturity Plan", monthly: "One-Time Setup", annual: "Monthly Service" },
+  columns: { item: "Plan", monthly: "One-Time Setup", annual: "Monthly Service" },
   rows: [
     { item: "Growth Engine (Starter)", monthly: "$1,999 USD", annual: "$497 USD/mo" },
-    { item: "Sales Autopilot (Recommended)", monthly: "$3,499 USD", annual: "$1,697 USD/mo (Includes $400 Meta ads)" },
+    { item: "Sales Autopilot", monthly: "$3,499 USD", annual: "$1,697 USD/mo (Includes $400 Meta ads)" },
     { item: "Market Leader (Premium)", monthly: "$6,999 USD", annual: "$2,797 USD/mo (Includes $800 Meta + Google ads)" },
   ],
   body: "Turnkey setup, hands-on onboarding training, managed advertising budgets, and continuous bilingual technical support.",
@@ -401,8 +428,7 @@ export const faq: FaqContent = {
   items: [
     {
       question: "Why is setup charged separately?",
-      answer:
-        "The initial implementation covers custom design, technical CRM setup, ad tracking pixels and accounts configuration, funnel building, workflow testing, and 1-on-1 team training. The monthly fee covers infrastructure, hosting, ad campaign management, and ongoing technical support.",
+      answer: "Implementation covers the agreed setup, testing, and launch for your plan. The monthly fee covers infrastructure, maintenance, support, and campaign management where applicable.",
     },
     {
       question: "How does the included ad spend budget work on Sales Autopilot and Market Leader?",
@@ -410,9 +436,8 @@ export const faq: FaqContent = {
         "Your monthly plan already includes a dedicated managed advertising budget ($400 USD on Sales Autopilot for Meta Ads, and $800 USD on Market Leader for Meta + Google Ads). We handle strategy, ad creative design, copywriting, and daily campaign optimization. If you wish to invest more budget in any given month to accelerate growth, you can add ad spend at direct pass-through cost with zero management markups.",
     },
     {
-      question: "Which plan is right for my business?",
-      answer:
-        "If you want to generate qualified leads on Facebook & Instagram and convert them with automated follow-ups and booked appointments without hiring staff, Sales Autopilot is our top recommendation. If you need a solid foundational presence with website and CRM, Growth Engine is your entry point. If you want to dominate your local market with Google Ads, Meta Ads, and 24/7 AI response, Market Leader is the ultimate end-to-end engine.",
+      question: "Which plan fits my business?",
+      answer: "Growth Engine helps organize inquiries and bookings. Sales Autopilot adds Meta campaigns and automated follow-up. Market Leader adds Google Ads and AI-assisted first responses.",
     },
     {
       question: "How do call, SMS, and AI usage fees work?",

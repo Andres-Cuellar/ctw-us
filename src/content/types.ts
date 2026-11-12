@@ -26,16 +26,6 @@ export interface CaptionedMedia extends Media {
   caption: string;
 }
 
-/**
- * A notification in the hero's live feed. Illustrates what the system does;
- * never names a real customer and never carries an invented figure.
- */
-export interface FeedItem {
-  label: string;
-  detail: string;
-  hue: "gold" | "wine" | "cyan" | "pink";
-}
-
 export interface Eyebrowed {
   eyebrow?: string;
   title: string;
@@ -78,8 +68,6 @@ export interface HeroContent extends Eyebrowed {
   anchors?: Cta[];
   /** Full-bleed photograph behind the headline. */
   backdrop?: Media;
-  /** Floating notifications around the headline. */
-  feed?: FeedItem[];
   /** Irresistible offer banner shown under the hero CTA. */
   offer?: { title: string; body: string };
 }
@@ -268,6 +256,12 @@ export interface Bundle {
   consumptionNote?: string;
   idealFor?: string;
   cta?: Cta;
+  summary?: {
+    features: string[];
+    monthly: string;
+    usage: string;
+    adBreakdown?: string;
+  };
   /** Bullet features shown under the plan card. */
   features?: string[];
   /** Annual promo line, e.g. "🔥 Promo Anual: ...". */
@@ -284,6 +278,7 @@ export interface BundlesContent {
   subtitle?: string;
   positioningIntro?: string;
   bundles: Bundle[];
+  onboarding?: StepsContent;
   conditionsTitle?: string;
   conditionsIntro?: string;
   commercialConditions?: CommercialCondition[];

@@ -22,17 +22,15 @@ export const homeSeo: PageSeo = {
 
 export const hero: HeroContent = {
   eyebrow: "Digital agency in the Southwest",
-  title: "Your business deserves more customers, not more complications",
+  title: "Can't answer? Your customer gets a text.",
   sign: {
-    lead: "Your business deserves",
-    lit: "more customers",
-    tail: "not more complications",
-    stutter: "3,8",
+    lead: "Can't answer?",
+    lit: "Your customer gets",
+    tail: "a text",
   },
   subtitle:
-    "We build your website and set up the system to answer, quote, and close clients from one single place. Bilingual team with flexible financing plans.",
-  primaryCta: { label: "Apply for financed web", kind: "apply" },
-  secondaryCta: { label: "Message us on WhatsApp", kind: "whatsapp" },
+    "We build your website and set up automatic text replies so you can pick up the conversation when you finish the job.",
+  primaryCta: { label: "See how it works", kind: "anchor", href: "#missed-call" },
   trustLine: [
     "No large upfront down payment",
     "Bilingual support (EN / ES)",
@@ -42,11 +40,6 @@ export const hero: HeroContent = {
     src: "/images/home/vegas-strip-night.jpg",
     alt: "The Southwest illuminated at night",
   },
-  feed: [
-    { label: "New Google Review", detail: "Requested automatically upon job completion", hue: "gold" },
-    { label: "Missed Call", detail: "Instant text message sent back", hue: "wine" },
-    { label: "New Appointment Booked", detail: "Via WhatsApp at 11:48 PM", hue: "cyan" },
-  ],
 };
 
 export const problem: ProblemContent = {

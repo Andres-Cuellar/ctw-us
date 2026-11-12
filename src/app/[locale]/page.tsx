@@ -54,16 +54,16 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <Hero content={hero} locale={locale} />
+      <Hero content={hero} locale={locale} missedCall={missedCall} />
+      <LlamadaPerdida content={missedCall} locale={locale} />
       <Problema content={problem} />
       <Solucion content={solution} />
-      <LlamadaPerdida content={missedCall} locale={locale} />
+      {testimonials.items.length > 0 && <Testimonios content={testimonials} />}
       <ServiciosDestacados content={featuredServices} locale={locale} />
       <Financiamiento content={financing} locale={locale} />
       <ComoFunciona content={steps} />
       <ParaQuienEs content={audience} />
       <PorQueNosotros content={reasons} />
-      <Testimonios content={testimonials} />
       <Preguntas content={faq} />
       <CtaFinal content={ctaFinal} locale={locale} />
     </>

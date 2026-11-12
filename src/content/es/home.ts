@@ -22,17 +22,15 @@ export const homeSeo: PageSeo = {
 
 export const hero: HeroContent = {
   eyebrow: "Agencia digital en el Suroeste",
-  title: "Tu negocio merece más clientes, no más complicaciones",
+  title: "¿No puedes contestar? Tu cliente recibe un mensaje.",
   sign: {
-    lead: "Tu negocio merece",
-    lit: "más clientes",
-    tail: "no más complicaciones",
-    stutter: "3,9",
+    lead: "¿No puedes contestar?",
+    lit: "Tu cliente recibe",
+    tail: "un mensaje",
   },
   subtitle:
-    "Creamos tu página web y te dejamos listo el sistema para atender, cotizar y cerrar clientes desde un solo lugar. Hablamos tu idioma y tenemos planes con financiamiento.",
-  primaryCta: { label: "Aplica a tu web financiada", kind: "apply" },
-  secondaryCta: { label: "Escríbenos por WhatsApp", kind: "whatsapp" },
+    "Creamos tu página web y configuramos una respuesta automática por SMS para que puedas retomar la conversación cuando termines el trabajo.",
+  primaryCta: { label: "Ver cómo funciona", kind: "anchor", href: "#missed-call" },
   trustLine: [
     "Sin pago inicial grande",
     "Atención en español",
@@ -42,11 +40,6 @@ export const hero: HeroContent = {
     src: "/images/home/vegas-strip-night.jpg",
     alt: "El Suroeste iluminado de noche",
   },
-  feed: [
-    { label: "Nueva reseña en Google", detail: "Pedida sola, al terminar el trabajo", hue: "gold" },
-    { label: "Llamada perdida", detail: "Mensaje de texto enviado al instante", hue: "wine" },
-    { label: "Nueva cita agendada", detail: "Por WhatsApp, a las 11:48 p. m.", hue: "cyan" },
-  ],
 };
 
 export const problem: ProblemContent = {

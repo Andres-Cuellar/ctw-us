@@ -3,16 +3,34 @@
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import type { Locale } from "@/shared/config/site";
+import { BookingCalendarFrame } from "./BookingCalendarFrame";
 
-const BOOKING_URL = "https://api.gstf.us/widget/booking/NQD2GFsECX9HaRbxp081";
+const BOOKING_CALENDARS = {
+  general: {
+    url: "https://api.gstf.us/widget/booking/NQD2GFsECX9HaRbxp081",
+    embedId: "NQD2GFsECX9HaRbxp081_1793251102316",
+  },
+  newClients: {
+    url: "https://api.gstf.us/widget/booking/uePrKolGek7CoVS1jAuP",
+    embedId: "uePrKolGek7CoVS1jAuP_1794522308099",
+  },
+};
 
 export function BookingDialog({ locale }: { locale: Locale }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [calendar, setCalendar] = useState(BOOKING_CALENDARS.general);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const isSpanish = locale === "es";
 
   useEffect(() => {
-    const open = () => {
+    const open = (event: Event) => {
+      const detail = (event as CustomEvent<{ plan?: string; source?: string }>).detail;
+      const requestedPlan = detail?.plan;
+      const isNewClients = detail?.source === "nuevos-clientes" ||
+        /\/nuevos-clientes\/?$/.test(window.location.pathname);
+      setCalendar(isNewClients ? BOOKING_CALENDARS.newClients : BOOKING_CALENDARS.general);
+      setSelectedPlan(requestedPlan && ["Esencial", "Crecimiento", "Expansión"].includes(requestedPlan) ? requestedPlan : null);
       setLoaded(true);
       dialogRef.current?.showModal();
     };
@@ -40,19 +58,23 @@ export function BookingDialog({ locale }: { locale: Locale }) {
           ×
         </button>
       </div>
+      {selectedPlan && (
+        <p className="border-b border-bone/15 px-5 py-3 text-sm text-bone">
+          {isSpanish ? "Plan de interés:" : "Selected plan:"} <strong>{selectedPlan}</strong>
+          <span className="ml-2 text-bone-70">{isSpanish ? "Menciona este plan al reservar tu demostración." : "Mention this plan when booking your demo."}</span>
+        </p>
+      )}
       {loaded && (
-        <iframe
-          src={BOOKING_URL}
-          id="NQD2GFsECX9HaRbxp081_1793251102316"
-          title={isSpanish ? "Calendario de asesoría" : "Consultation calendar"}
-          allow="payment"
-          scrolling="auto"
-          className="block h-[min(76dvh,760px)] w-full border-0 bg-white"
+        <BookingCalendarFrame
+          key={calendar.embedId}
+          url={calendar.url}
+          embedId={calendar.embedId}
+          isSpanish={isSpanish}
         />
       )}
       {loaded && <Script src="https://api.gstf.us/js/form_embed.js" strategy="afterInteractive" />}
       <a
-        href={BOOKING_URL}
+        href={calendar.url}
         target="_blank"
         rel="noopener noreferrer"
         className="block border-t border-bone/15 px-5 py-3 text-center text-sm text-gold underline underline-offset-4"

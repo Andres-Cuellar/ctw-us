@@ -54,10 +54,10 @@ export default async function ServiciosPage({ params }: PageProps) {
     <>
       <PageHero content={hero} locale={locale} hue="gold" />
       <PlanesSubmenu locale={locale} />
+      <Paquetes content={bundles} locale={locale} />
       <PaginasWeb content={webTiers} locale={locale} />
       <Tiendas content={store} locale={locale} />
       <Herramientas content={tools} />
-      <Paquetes content={bundles} locale={locale} />
       <CiclosDePago content={billing} />
       <MetodosDePago content={payments} />
       <ServiciosAdicionales content={addOns} locale={locale} />

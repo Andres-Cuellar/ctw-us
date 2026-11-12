@@ -107,7 +107,7 @@ export function LlamadaPerdida({ content, locale }: LlamadaPerdidaProps) {
   return (
     <>
       <hr className="filament border-0" aria-hidden />
-      <section className="bloom overflow-x-clip bg-night py-panel md:py-panel-lg">
+      <section id="missed-call" className="scroll-mt-28 bloom overflow-x-clip bg-night py-panel md:py-panel-lg">
         <div
           ref={scope}
           className="mx-auto grid w-full max-w-[1280px] gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:items-center lg:gap-20 lg:px-12"
