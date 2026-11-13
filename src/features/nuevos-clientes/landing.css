@@ -227,6 +227,12 @@
 .nc-steps p { font-size: 12px; color: var(--muted); margin-top: 14px; }
 .nc-faqSection { display: grid; grid-template-columns: .9fr 1.2fr; gap: 90px; background: white; border-top: 1px solid var(--line); }
 .nc-faqSection > div > p:last-child { color: var(--muted); font-size: 13px; margin-top: 23px; max-width: 300px; }
+/* The FAQ intro rides at the vertical center of the viewport while the
+   answers scroll beside it. Off on mobile, where columns stack. */
+.nc-faqIntro { align-self: start; }
+@media (min-width: 761px) {
+  .nc-faqIntro { position: sticky; top: calc(50vh - 7rem); }
+}
 .nc-faqList details { border-bottom: 1px solid var(--line); }
 .nc-faqList summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; font-size: 12px; font-weight: 500; cursor: pointer; list-style: none; }
 .nc-faqList summary::-webkit-details-marker, .nc-termsDetails summary::-webkit-details-marker { display: none; }

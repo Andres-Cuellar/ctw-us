@@ -213,7 +213,7 @@ export function NewClientsLanding() {
     </section>
 
     <section className={`${"nc-section"} ${"nc-faqSection"}`}>
-      <div data-reveal><Eyebrow>TODO CLARO ANTES DE EMPEZAR</Eyebrow><h2>Buenas preguntas.<br/><em>Respuestas claras.</em></h2><p>Los precios, el proceso y lo que pasa después del mes gratuito.</p></div><div className={"nc-faqList"}>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
+      <div className={"nc-faqIntro"} data-reveal><Eyebrow>TODO CLARO ANTES DE EMPEZAR</Eyebrow><h2>Buenas preguntas.<br/><em>Respuestas claras.</em></h2><p>Los precios, el proceso y lo que pasa después del mes gratuito.</p></div><div className={"nc-faqList"}>{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
     </section>
 
     <section className={`${"nc-section"} ${"nc-finalSection"}`}><div data-reveal><Eyebrow>MENOS PENDIENTES. MÁS CLARIDAD.</Eyebrow><h2>Tu próxima consulta<br/>merece <em>un siguiente paso.</em></h2><p>Descubre cómo conectar tu web, tus clientes y tu seguimiento en una demostración para tu negocio.</p><BookButton/><span className={"nc-finalFine"}>30 días sin mensualidad · US$20 de crédito incluido · Pauta aparte</span></div></section>
