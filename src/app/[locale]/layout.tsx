@@ -8,6 +8,7 @@ import "../globals.css";
 import { getGlobalContent } from "@/content";
 import { MetaPixel } from "@/shared/analytics/MetaPixel";
 import { DEFAULT_LOCALE, LOCALES, isLocale, site, type Locale } from "@/shared/config/site";
+import { RouteChrome } from "@/shared/layout/RouteChrome";
 import { Footer } from "@/shared/layout/Footer";
 import { BookingDialog } from "@/shared/layout/BookingDialog";
 import { Header } from "@/shared/layout/Header";
@@ -123,13 +124,12 @@ export default async function LocaleLayout({
           {globalContent.skipToContent}
         </a>
 
-        <TopBar locale={locale} />
-        <Header locale={locale} />
+        <RouteChrome><TopBar locale={locale} /><Header locale={locale} /></RouteChrome>
         <main id="contenido">{children}</main>
-        <Footer locale={locale} />
+        <RouteChrome><Footer locale={locale} />
         <WhatsAppFab locale={locale} />
         <MobileBottomBar locale={locale} />
-        <BookingDialog locale={locale} />
+        <BookingDialog locale={locale} /></RouteChrome>
         <Suspense fallback={null}>
           <MetaPixel />
         </Suspense>

@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: { es: `${site.url}/es${path}`, en: `${site.url}/en${path}` } },
   })));
   // Spanish-only landing: /en/nuevos-clientes redirects, so it is not listed.
-  const spanishOnly = ["/nuevos-clientes"].map((path) => ({
+  const spanishOnly = ["/nuevos-clientes", "/clientes-nuevos", "/terminos-prueba"].map((path) => ({
     url: `${site.url}/es${path}`,
     alternates: { languages: { es: `${site.url}/es${path}`, "x-default": `${site.url}/es${path}` } },
   }));

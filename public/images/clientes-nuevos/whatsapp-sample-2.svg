@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="700" viewBox="0 0 390 700">
+ <defs><pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M8 12l7 5-4 8M32 30l-6 5" stroke="#d7d0c4" stroke-width="1" fill="none" opacity=".45"/></pattern></defs>
+ <rect width="390" height="700" rx="16" fill="#efeae2"/><rect width="390" height="700" fill="url(#p)"/>
+ <path d="M16 0h358q16 0 16 16v94H0V16Q0 0 16 0" fill="#075e54"/>
+ <g font-family="Arial,sans-serif"><text x="20" y="27" fill="white" font-size="13">9:41</text><text x="309" y="27" fill="white" font-size="11">● ▰ 100%</text><text x="14" y="76" fill="white" font-size="28">‹</text>
+ <circle cx="53" cy="72" r="20" fill="#d8e7e0"/><path d="M42 82q11-13 22 0M48 66a5 5 0 1 0 10 0a5 5 0 1 0-10 0" fill="#94afa4"/>
+ <text x="84" y="69" fill="white" font-size="16" font-weight="600">Captura de muestra 02</text><text x="84" y="89" fill="#c5ded4" font-size="11">Vista previa de WhatsApp</text>
+ <rect x="111" y="131" width="168" height="27" rx="7" fill="#fffcf7"/><text x="195" y="149" fill="#77776d" font-size="11" text-anchor="middle">IMAGEN TEMPORAL</text>
+ <rect x="16" y="182" width="294" height="116" rx="10" fill="#fff"/><text x="30" y="209" fill="#24312b" font-size="16"><tspan x="30">Aquí irá una captura real</tspan><tspan x="30" dy="24">con el comentario de</tspan><tspan x="30" dy="24">uno de tus clientes.</tspan></text><text x="264" y="286" fill="#87928c" font-size="10">10:24</text>
+ <rect x="79" y="319" width="295" height="99" rx="10" fill="#d9fdd3"/><text x="94" y="347" fill="#24312b" font-size="16"><tspan x="94">Atención, en palabras</tspan><tspan x="94" dy="24">de tus clientes.</tspan></text><text x="315" y="405" fill="#87928c" font-size="10">10:25</text><text x="346" y="405" fill="#62aabc" font-size="13">✓✓</text>
+ <rect x="16" y="441" width="294" height="95" rx="10" fill="#fff"/><text x="30" y="470" fill="#24312b" font-size="15"><tspan x="30">Espacio reservado para</tspan><tspan x="30" dy="24">tu captura autorizada.</tspan></text><text x="264" y="523" fill="#87928c" font-size="10">10:26</text>
+ <rect x="43" y="566" width="304" height="46" rx="10" fill="#fffaf2" stroke="#d9b987"/><text x="195" y="585" text-anchor="middle" fill="#832c20" font-size="11" font-weight="700">MUESTRA</text><text x="195" y="602" text-anchor="middle" fill="#832c20" font-size="11">NO ES UN TESTIMONIO REAL</text>
+ <rect x="0" y="640" width="390" height="60" fill="#f7f7f3"/><rect x="12" y="650" width="318" height="37" rx="18" fill="#fff"/><text x="29" y="674" fill="#989e99" font-size="14">Mensaje</text><circle cx="359" cy="669" r="19" fill="#075e54"/><text x="352" y="675" fill="white" font-size="19">↑</text></g></svg>
